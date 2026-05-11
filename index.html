@@ -6,7 +6,7 @@
 <title>🚀 Mission Control — Jason</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  :root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--sidebar:#0b1121;--accent:#38bdf8;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--purple:#a855f7;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;--hover:#1e3a5f;--active:#1e3a5f}
+  :root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--sidebar:#0b1121;--accent:#38bdf8;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;--hover:#1e3a5f;--active:#1e3a5f}
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
   .sidebar{width:240px;background:var(--sidebar);border-right:1px solid var(--border);padding:20px 0;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;overflow-y:auto}
@@ -67,8 +67,7 @@
     .sidebar-header h1{font-size:0}
     .sidebar-header h1::after{content:'🚀';font-size:20px}
     .sidebar-header,.date-badge,.sidebar-group,.nav-item span:not(.icon){display:none}
-    .nav-item{justify-content:center;padding:14px}
-    .nav-item .badge{display:none}
+    .nav-item{justify-content:center;padding:14px}.nav-item .badge{display:none}
     .main{margin-left:56px;padding:16px;max-width:calc(100% - 56px)}
     .grid-2{grid-template-columns:1fr}
   }
@@ -81,17 +80,17 @@
     <h1><i class="fas fa-rocket"></i> MC</h1>
     <div class="date-badge" id="sidebarDate"></div>
   </div>
-  <div class="sidebar-group"><i class="fas fa-th-large" style="font-size:10px;margin-right:4px"></i> Tổng quan</div>
+  <div class="sidebar-group">Tổng quan</div>
   <a class="nav-item active" data-page="dashboard" href="#"><span class="icon"><i class="fas fa-chart-pie"></i></span><span>Dashboard</span></a>
   <a class="nav-item" data-page="backlog" href="#"><span class="icon"><i class="fas fa-clipboard-list"></i></span><span>Backlog</span><span class="badge">5</span></a>
-  <div class="sidebar-group"><i class="fas fa-cog" style="font-size:10px;margin-right:4px"></i> Tự động</div>
+  <div class="sidebar-group">Tự động</div>
   <a class="nav-item" data-page="cron" href="#"><span class="icon"><i class="fas fa-clock"></i></span><span>Cron Jobs</span><span class="badge">2</span></a>
   <a class="nav-item" data-page="leadership" href="#"><span class="icon"><i class="fas fa-book-open"></i></span><span>Leadership</span><span class="badge">8</span></a>
-  <div class="sidebar-group"><i class="fas fa-folder" style="font-size:10px;margin-right:4px"></i> Dự án chính</div>
+  <div class="sidebar-group">Dự án chính</div>
   <a class="nav-item" data-page="games" href="#"><span class="icon"><i class="fas fa-gamepad"></i></span><span>Game Dev</span><span class="badge">3</span></a>
   <a class="nav-item" data-page="cvjobs" href="#"><span class="icon"><i class="fas fa-file-alt"></i></span><span>CV & Jobs</span></a>
   <a class="nav-item" data-page="website" href="#"><span class="icon"><i class="fas fa-globe"></i></span><span>sslakd.com</span></a>
-  <div class="sidebar-group"><i class="fas fa-server" style="font-size:10px;margin-right:4px"></i> Hệ thống</div>
+  <div class="sidebar-group">Hệ thống</div>
   <a class="nav-item" data-page="system" href="#"><span class="icon"><i class="fas fa-cog"></i></span><span>System</span></a>
   <a class="nav-item" data-page="dropbox" href="#"><span class="icon"><i class="fas fa-folder-open"></i></span><span>Dropbox</span></a>
   <a class="nav-item" data-page="files" href="#"><span class="icon"><i class="fas fa-folder"></i></span><span>Project Files</span></a>
@@ -103,15 +102,15 @@
   <div class="page-header"><h2><i class="fas fa-chart-pie"></i> Dashboard</h2><p id="dashboardDate"></p></div>
   <div class="grid-2">
     <div class="card"><h3><i class="fas fa-clock"></i> Hôm nay</h3>
-      <div class="cron-item"><div class="cron-time">6:00</div><div class="cron-info"><div class="cron-title"><i class="fas fa-book"></i> Bài EN Leadership → Telegram</div><div class="cron-desc">Jason</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
-      <div class="cron-item"><div class="cron-time">6:10</div><div class="cron-info"><div class="cron-title"><i class="fas fa-envelope"></i> Bài VN Leadership → Email</div><div class="cron-desc">dangtoquynhpk@gmail.com</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+      <div class="cron-item"><div class="cron-time">6:00</div><div class="cron-info"><div class="cron-title">EN Leadership → Telegram</div><div class="cron-desc">Jason</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+      <div class="cron-item"><div class="cron-time">6:10</div><div class="cron-info"><div class="cron-title">VN Leadership → Email</div><div class="cron-desc">dangtoquynhpk@gmail.com</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
     </div>
     <div class="card"><h3><i class="fas fa-bullseye"></i> Dự án</h3>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-gamepad"></i> 3QR Game</span><span class="stat-value"><span class="tag green">Running</span></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-gamepad"></i> Double Agent</span><span class="stat-value"><span class="tag blue">Design</span></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-file-alt"></i> CV Remote PM</span><span class="stat-value"><span class="tag yellow">Pending</span></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-globe"></i> sslakd.com</span><span class="stat-value"><span class="tag green">Live</span></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-book-open"></i> Leadership</span><span class="stat-value"><span class="tag green">Active</span></span></div>
+      <div class="stat-row"><span class="stat-label">3QR Game</span><span class="stat-value"><span class="tag green">Running</span></span></div>
+      <div class="stat-row"><span class="stat-label">Double Agent</span><span class="stat-value"><span class="tag blue">Design</span></span></div>
+      <div class="stat-row"><span class="stat-label">CV Remote PM</span><span class="stat-value"><span class="tag yellow">Pending</span></span></div>
+      <div class="stat-row"><span class="stat-label">sslakd.com</span><span class="stat-value"><span class="tag green">Live</span></span></div>
+      <div class="stat-row"><span class="stat-label">Leadership</span><span class="stat-value"><span class="tag green">Active</span></span></div>
     </div>
   </div>
   <div class="card"><h3><i class="fas fa-clipboard-list"></i> Việc cần làm</h3>
@@ -119,7 +118,6 @@
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>Đẩy CV lên remote job boards</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>Fix UID warning 3QR</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>Google Photos → YouTube</span></div>
-    <div class="todo-item"><i class="fas fa-lightbulb" style="color:var(--yellow)"></i><span>Chủ đề mới sau Leadership</span></div>
   </div>
 </div>
 
@@ -134,6 +132,7 @@
     <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">sslakd.com live</span></div>
     <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Mission Control Board deploy</span></div>
     <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Soạn nội dung LinkedIn</span></div>
+    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Sắp xếp Desktop/Openclaw/</span></div>
   </div>
   <div class="card"><h3><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i> Đang chờ</h3>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>Update LinkedIn profile</span></div>
@@ -146,170 +145,135 @@
 
 <div class="page" id="page-cron">
   <div class="page-header"><h2><i class="fas fa-clock"></i> Cron Jobs</h2><p>Tự động gửi bài học mỗi sáng</p></div>
-  <div class="card"><h3><i class="fas fa-book"></i> Bài EN Leadership <span class="count">6:00</span></h3>
-    <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value">Active <i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+  <div class="card"><h3>EN Leadership <span class="count">6:00</span></h3>
+    <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value">Active</span></div>
     <div class="stat-row"><span class="stat-label">Đến</span><span class="stat-value">Telegram → Jason</span></div>
-    <div class="stat-row"><span class="stat-label">Nội dung</span><span class="stat-value">UEH Leadership + Glossary</span></div>
-    <div class="stat-row"><span class="stat-label"><i class="fas fa-sync"></i> Tracker</span><span class="stat-value">Day 2/8</span></div>
+    <div class="stat-row"><span class="stat-label">Tracker</span><span class="stat-value">Day 2/8</span></div>
   </div>
-  <div class="card"><h3><i class="fas fa-envelope"></i> Bài VN Leadership <span class="count">6:10</span></h3>
-    <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value">Active <i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+  <div class="card"><h3>VN Leadership <span class="count">6:10</span></h3>
+    <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value">Active</span></div>
     <div class="stat-row"><span class="stat-label">Đến</span><span class="stat-value">dangtoquynhpk@gmail.com</span></div>
-    <div class="stat-row"><span class="stat-label">Nội dung</span><span class="stat-value">VN + góc nhìn thu mua golf</span></div>
-    <div class="stat-row"><span class="stat-label"><i class="fas fa-sync"></i> Tracker</span><span class="stat-value">Day 2/8</span></div>
+    <div class="stat-row"><span class="stat-label">Tracker</span><span class="stat-value">Day 2/8</span></div>
   </div>
 </div>
 
 <div class="page" id="page-leadership">
-  <div class="page-header"><h2><i class="fas fa-book-open"></i> Leadership Series</h2><p>UEH — Nguyễn Hữu Lam · 8 ngày</p></div>
+  <div class="page-header"><h2><i class="fas fa-book-open"></i> Leadership Series</h2><p>UEH — 8 ngày · <code>Desktop/Openclaw/17_Leadership_Series/</code></p></div>
   <div class="card"><h3>Tiến độ</h3>
-    <div class="day-row"><div class="day-num">1</div><div class="day-title">What Is Leadership?<div><span><i class="fas fa-book"></i> EN</span> · <span><i class="fas fa-envelope"></i> VN: Lãnh đạo là gì?</span></div></div><span class="day-status done"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+    <div class="day-row"><div class="day-num">1</div><div class="day-title">What Is Leadership? <span style="font-size:12px;color:var(--muted)">EN + VN: Lãnh đạo là gì?</span></div><span class="day-status done"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
     <div class="day-row"><div class="day-num">2</div><div class="day-title">Power & Politics</div><span class="day-status today">Hôm nay</span></div>
-    <div class="day-row"><div class="day-num">3</div><div class="day-title">Traits & Skills</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
-    <div class="day-row"><div class="day-num">4</div><div class="day-title">Leadership Styles</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
-    <div class="day-row"><div class="day-num">5</div><div class="day-title">Situational Leadership</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
-    <div class="day-row"><div class="day-num">6</div><div class="day-title">Transformational</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
-    <div class="day-row"><div class="day-num">7</div><div class="day-title">Leading Change</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
-    <div class="day-row"><div class="day-num">8</div><div class="day-title">Leadership in Practice</div><span class="day-status pending"><i class="fas fa-spinner" style="color:var(--muted)"></i></span></div>
+    <div class="day-row"><div class="day-num">3</div><div class="day-title">Traits & Skills</div><span class="day-status pending"></span></div>
+    <div class="day-row"><div class="day-num">4</div><div class="day-title">Leadership Styles</div><span class="day-status pending"></span></div>
+    <div class="day-row"><div class="day-num">5</div><div class="day-title">Situational Leadership</div><span class="day-status pending"></span></div>
+    <div class="day-row"><div class="day-num">6</div><div class="day-title">Transformational</div><span class="day-status pending"></span></div>
+    <div class="day-row"><div class="day-num">7</div><div class="day-title">Leading Change</div><span class="day-status pending"></span></div>
+    <div class="day-row"><div class="day-num">8</div><div class="day-title">Leadership in Practice</div><span class="day-status pending"></span></div>
   </div>
 </div>
 
 <div class="page" id="page-games">
   <div class="page-header"><h2><i class="fas fa-gamepad"></i> Game Dev</h2><p>3 dự án</p></div>
   <div class="card"><h3>3QR — Three Kingdoms Roguelite <span class="count tag green">Running</span></h3>
-    <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Godot 4 + GDScript</span></div>
-    <div class="stat-row"><span class="stat-label">Thể loại</span><span class="stat-value">Xiangqi + Roguelite + Cards</span></div>
-    <div class="stat-row"><span class="stat-label">Prototype</span><span class="stat-value"><i class="fas fa-check-circle" style="color:var(--green)"></i> Playable</span></div>
+    <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Godot 4</span></div>
+    <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">14_Game_ThreeKingdoms/</span></div>
     <div class="stat-row"><span class="stat-label"><i class="fas fa-exclamation-triangle" style="color:var(--yellow)"></i></span><span class="stat-value">UID warning UI.tscn</span></div>
-    <div class="stat-row"><span class="stat-label"><i class="fas fa-folder"></i></span><span class="stat-value">14_Game_ThreeKingdoms/godot/</span></div>
   </div>
   <div class="grid-2">
     <div class="card"><h3>Double Agent <span class="count tag blue">Design</span></h3>
-      <div class="stat-row"><span class="stat-label">Type</span><span class="stat-value">Board + Cards</span></div>
+      <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">12_Game_DoubleAgent/</span></div>
       <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> GDD xong</div>
     </div>
     <div class="card"><h3>Iron Throne Medieval <span class="count tag blue">Design</span></h3>
-      <div class="stat-row"><span class="stat-label">Type</span><span class="stat-value">Card Roguelite</span></div>
+      <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">13_Game_Medieval/</span></div>
       <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> GDD xong</div>
     </div>
   </div>
 </div>
 
 <div class="page" id="page-cvjobs">
-  <div class="page-header"><h2><i class="fas fa-file-alt"></i> CV & Remote Jobs</h2><p>Nguyễn Đình Phước Sơn — tìm việc PM Remote</p></div>
+  <div class="page-header"><h2><i class="fas fa-file-alt"></i> CV & Remote Jobs</h2></div>
   <div class="card"><h3><i class="fas fa-user-tie"></i> Hồ sơ</h3>
     <div class="stat-row"><span class="stat-label">Vị trí</span><span class="stat-value">Senior Remote PM</span></div>
     <div class="stat-row"><span class="stat-label">Kinh nghiệm</span><span class="stat-value">13+ năm · Agile/Scrum</span></div>
-    <div class="stat-row"><span class="stat-label"><i class="fas fa-globe"></i></span><span class="stat-value">sslakd.com</span></div>
-    <div class="stat-row"><span class="stat-label"><i class="fas fa-code-branch"></i></span><span class="stat-value">github.com/sslakd</span></div>
+    <div class="stat-row"><span class="stat-label">Website</span><span class="stat-value">sslakd.com</span></div>
   </div>
   <div class="grid-2">
     <div class="card"><h3><i class="fas fa-folder"></i> Files</h3>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> NGUYEN_DINH_PHUOC_SON_CV.md</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> CV_OPTIMIZED_FOR_REMOTE_PM.md</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> CV_REMOTE_KEYWORD_SUMMARY.md</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> JOB_SEARCH_STRATEGY.md</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> REMOTE_PM_JOBS_ANALYSIS.md</div>
-      <div class="proj-item"><i class="fas fa-file-csv"></i> remote_pm_jobs_tracking.csv</div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>11_CV_Portfolio/</strong> — CV, optimized, deploy guide</div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>10_Remote_Jobs_PM/</strong> — strategy, analysis, tracking</div>
+      <div class="proj-item"><i class="fas fa-file-alt" style="color:var(--yellow)"></i> LINKEDIN_CONTENT.md (mới)</div>
     </div>
-    <div class="card"><h3><i class="fas fa-bullseye"></i> Kế hoạch 30 ngày</h3>
+    <div class="card"><h3>Kế hoạch 30 ngày</h3>
       <div class="stat-row"><span class="stat-label">Tuần 1</span><span class="stat-value">CV & LinkedIn</span></div>
       <div class="stat-row"><span class="stat-label">Tuần 2</span><span class="stat-value">Apply 20-30 jobs</span></div>
       <div class="stat-row"><span class="stat-label">Tuần 3</span><span class="stat-value">Phỏng vấn</span></div>
       <div class="stat-row"><span class="stat-label">Tuần 4</span><span class="stat-value">Negotiate</span></div>
     </div>
   </div>
-  <div class="card"><h3><i class="fas fa-file-alt"></i> LinkedIn Content <span class="count tag yellow">Mới</span></h3>
-    <div class="proj-item"><i class="fas fa-file-alt"></i> <strong>LINKEDIN_CONTENT.md</strong> — <span style="color:var(--accent)">workspace/cv-and-jobs/</span></div>
-    <div class="stat-row"><span class="stat-label">Headline</span><span class="stat-value">"Senior Remote PM | Agile/Scrum Expert"</span></div>
-    <div class="stat-row"><span class="stat-label">About</span><span class="stat-value">Remote-focused EN bio + VN phụ</span></div>
-    <div class="stat-row"><span class="stat-label">Skills</span><span class="stat-value">9 remote keywords mới</span></div>
-  </div>
 </div>
 
 <div class="page" id="page-website">
   <div class="page-header"><h2><i class="fas fa-globe"></i> sslakd.com</h2><p>Hugo · GitHub Pages</p></div>
-  <div class="card"><h3><i class="fas fa-info-circle"></i> Thông tin</h3>
+  <div class="card"><h3>Thông tin</h3>
     <div class="stat-row"><span class="stat-label">URL</span><span class="stat-value">sslakd.com</span></div>
-    <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Hugo v0.161.1+ · coder theme</span></div>
-    <div class="stat-row"><span class="stat-label">Deploy</span><span class="stat-value">main → Pages</span></div>
+    <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Hugo + coder theme</span></div>
     <div class="stat-row"><span class="stat-label">Local</span><span class="stat-value">~/Desktop/jason-hut-new/</span></div>
-  </div>
-  <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-pen"></i> Content</h3>
-      <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> About page</div>
-      <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> Welcome post</div>
-      <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> Agile Offshore Japan</div>
-    </div>
-    <div class="card"><h3><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i> Chờ update</h3>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> sslakd_same_layout_updated.html</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> sslakd_content_only_update.txt</div>
-    </div>
   </div>
 </div>
 
 <div class="page" id="page-system">
-  <div class="page-header"><h2><i class="fas fa-cog"></i> System</h2><p>Hạ tầng</p></div>
+  <div class="page-header"><h2><i class="fas fa-cog"></i> System</h2></div>
   <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-plug"></i> Kết nối</h3>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-server"></i> Gateway</span><span class="stat-value">127.0.0.1:18789 <i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-clock"></i> Cron</span><span class="stat-value">2 jobs active</span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-envelope"></i> Gmail</span><span class="stat-value">sslakd@gmail.com <i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-folder-open"></i> Dropbox</span><span class="stat-value">rclone <i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+    <div class="card"><h3>Kết nối</h3>
+      <div class="stat-row"><span class="stat-label">Gateway</span><span class="stat-value">127.0.0.1:18789</span></div>
+      <div class="stat-row"><span class="stat-label">Cron</span><span class="stat-value">2 jobs</span></div>
+      <div class="stat-row"><span class="stat-label">Gmail</span><span class="stat-value">sslakd@gmail.com</span></div>
+      <div class="stat-row"><span class="stat-label">Dropbox</span><span class="stat-value">rclone</span></div>
     </div>
-    <div class="card"><h3><i class="fas fa-info-circle"></i> Thông tin</h3>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-robot"></i> Agent</span><span class="stat-value">Nani</span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-clock"></i> Timezone</span><span class="stat-value">Asia/Saigon +7</span></div>
-      <div class="stat-row"><span class="stat-label"><i class="fas fa-laptop"></i> Host</span><span class="stat-value">Mac mini ARM</span></div>
+    <div class="card"><h3>Thông tin</h3>
+      <div class="stat-row"><span class="stat-label">Agent</span><span class="stat-value">Nani</span></div>
+      <div class="stat-row"><span class="stat-label">Timezone</span><span class="stat-value">Asia/Saigon</span></div>
+      <div class="stat-row"><span class="stat-label">Host</span><span class="stat-value">Mac mini ARM</span></div>
     </div>
   </div>
 </div>
 
 <div class="page" id="page-dropbox">
-  <div class="page-header"><h2><i class="fas fa-folder-open"></i> Dropbox</h2><p>dropbox_sslakd</p></div>
+  <div class="page-header"><h2><i class="fas fa-folder-open"></i> Dropbox</h2></div>
   <div class="card"><h3>Cấu trúc</h3>
     <div style="font-family:monospace;font-size:13px;line-height:2">
-      <i class="fas fa-folder"></i> Dropbox<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> book/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> CV/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> portfolio/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> scan/<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-folder" style="color:var(--yellow)"></i> <strong style="color:var(--yellow)">Read when stuck!</strong>
+      <i class="fas fa-folder"></i> Dropbox/book/<br>
+      <i class="fas fa-folder"></i> CV/<br>
+      <i class="fas fa-folder"></i> portfolio/<br>
+      <i class="fas fa-folder"></i> scan/<br>
+      &nbsp;&nbsp;<i class="fas fa-folder" style="color:var(--yellow)"></i> Read when stuck! (UEH)
     </div>
   </div>
 </div>
 
 <div class="page" id="page-files">
-  <div class="page-header"><h2><i class="fas fa-folder"></i> Project Files</h2><p>workspace/</p></div>
+  <div class="page-header"><h2><i class="fas fa-folder"></i> Desktop/Openclaw/</h2><p>Cấu trúc thư mục đầy đủ</p></div>
   <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-book-open"></i> leadership-reading/</h3>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> lesson-01 → 08 (EN)</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> vn-lesson-01 → 08 (VN)</div>
-      <div class="proj-item"><i class="fas fa-sync"></i> .tracker + .vn-tracker</div>
+    <div class="card"><h3>Dự án</h3>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>10_Remote_Jobs_PM/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>11_CV_Portfolio/</strong> + cv-and-jobs/</div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>12_Game_DoubleAgent/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>13_Game_Medieval/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>14_Game_ThreeKingdoms/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>17_Leadership_Series/</strong> ← mới</div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>18_Mission_Control/</strong> ← mới</div>
     </div>
-    <div class="card"><h3><i class="fas fa-file-alt"></i> cv-and-jobs/</h3>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> LINKEDIN_CONTENT.md</div>
-    </div>
-  </div>
-  <div class="card"><h3><i class="fas fa-sitemap"></i> Workspace Tree</h3>
-    <div style="font-family:monospace;font-size:12px;line-height:1.8">
-      <i class="fas fa-folder-open"></i> workspace/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder" style="color:var(--accent)"></i> <strong style="color:var(--accent)">cv-and-jobs/</strong><br>
-      &nbsp;&nbsp;<i class="fas fa-folder" style="color:var(--accent)"></i> <strong style="color:var(--accent)">leadership-reading/</strong><br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> memory/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> reports/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder"></i> state/<br>
-      &nbsp;&nbsp;<i class="fas fa-file-alt"></i> MISSION_CONTROL.md<br>
-      &nbsp;&nbsp;<i class="fas fa-file-alt"></i> SOUL.md, AGENTS.md, USER.md<br>
-      &nbsp;&nbsp;<i class="fas fa-file-alt"></i> TOOLS.md, IDENTITY.md
+    <div class="card"><h3>Tiện ích</h3>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>15_Photo_Enhancement/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>16_Medical_Records/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>Python_Scripts/</strong></div>
+      <div class="proj-item"><i class="fas fa-folder"></i> <strong>01-09_* /</strong> (rental, budget, english, facebook...)</div>
     </div>
   </div>
   <div class="card" style="border-color:var(--yellow)">
-    <h3><i class="fas fa-info-circle" style="color:var(--yellow)"></i> Quy tắc mới</h3>
-    <p style="font-size:14px;color:var(--muted);line-height:1.6">
-      <i class="fas fa-check" style="color:var(--green)"></i> File mới luôn lưu trong <code>workspace/</code><br>
-      <i class="fas fa-check" style="color:var(--green)"></i> Phân loại vào thư mục riêng <code>cv-and-jobs/</code>, <code>leadership-reading/</code>...<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> Dashboard luôn phản ánh cấu trúc thực tế
+    <h3><i class="fas fa-info-circle" style="color:var(--yellow)"></i> ➡️ Từ nay mọi file mới lưu tại</h3>
+    <p style="font-size:16px;font-weight:600;text-align:center;padding:12px;color:var(--accent)">
+      <i class="fas fa-folder-open"></i> ~/Desktop/Openclaw/XX_Tên_Folder/
     </p>
   </div>
 </div>
@@ -317,9 +281,7 @@
 </div><!-- /main -->
 
 <script>
-  document.getElementById('sidebarDate').textContent = new Date().toLocaleDateString('vi-VN',{
-    weekday:'long',month:'short',day:'numeric'
-  });
+  document.getElementById('sidebarDate').textContent=new Date().toLocaleDateString('vi-VN',{weekday:'long',month:'short',day:'numeric'});
   const dd=document.getElementById('dashboardDate');
   if(dd)dd.textContent=new Date().toLocaleString('vi-VN',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
   document.querySelectorAll('.nav-item').forEach(l=>{
