@@ -9,6 +9,7 @@
     --bg: #0f172a;
     --card: #1e293b;
     --card2: #334155;
+    --sidebar: #0b1121;
     --accent: #38bdf8;
     --green: #22c55e;
     --yellow: #eab308;
@@ -16,67 +17,150 @@
     --purple: #a855f7;
     --text: #f1f5f9;
     --muted: #94a3b8;
+    --border: #1e293b;
+    --hover: #1e3a5f;
+    --active: #1e3a5f;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
-    padding: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 12px;
+    min-height: 100vh;
   }
-  .header h1 { font-size: 28px; display: flex; align-items: center; gap: 10px; }
-  .header .badge { color: var(--muted); font-size: 14px; }
-  .status-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
-  .status-dot.green { background: var(--green); }
-  .status-dot.yellow { background: var(--yellow); }
-  .status-dot.red { background: var(--red); }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 16px;
-    margin-bottom: 20px;
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    width: 240px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow-y: auto;
   }
-  .card {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #334155;
+  .sidebar-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
   }
-  .card h2 {
-    font-size: 16px;
-    color: var(--accent);
-    margin-bottom: 16px;
+  .sidebar-header h1 {
+    font-size: 18px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .card h2 .count {
+  .sidebar-header .date-badge {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 14px;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .nav-item:hover {
+    background: var(--hover);
+    color: var(--text);
+  }
+  .nav-item.active {
+    background: var(--active);
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+  .nav-item .icon { font-size: 18px; min-width: 24px; }
+  .nav-item .badge {
+    margin-left: auto;
+    background: var(--card2);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: var(--muted);
+  }
+  .nav-item.active .badge {
+    background: #1e3a5f;
+    color: var(--accent);
+  }
+  .sidebar-group {
+    padding: 8px 20px 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #475569;
+    font-weight: 600;
+  }
+
+  /* ============ MAIN ============ */
+  .main {
+    margin-left: 240px;
+    flex: 1;
+    padding: 28px 32px;
+    max-width: calc(100% - 240px);
+  }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .page-header {
+    margin-bottom: 24px;
+  }
+  .page-header h2 {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .page-header p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  /* ============ CARDS ============ */
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 .count {
     background: var(--card2);
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
     padding: 2px 8px;
     border-radius: 10px;
     margin-left: auto;
   }
 
-  /* Cron Jobs */
   .cron-item {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #1e293b;
-    gap: 10px;
+    gap: 12px;
   }
   .cron-item:last-child { border-bottom: none; }
   .cron-time {
@@ -99,40 +183,38 @@
   .cron-status.active { background: #166534; color: var(--green); }
   .cron-status.pending { background: #713f12; color: var(--yellow); }
 
-  /* Learning Series */
   .day-row {
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #1e293b;
-    gap: 8px;
-    font-size: 13px;
+    gap: 10px;
+    font-size: 14px;
   }
   .day-row:last-child { border-bottom: none; }
   .day-num {
     background: var(--card2);
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 13px;
     flex-shrink: 0;
   }
   .day-title { flex: 1; }
-  .day-en, .day-vn { font-size: 11px; color: var(--muted); }
-  .day-status { font-size: 14px; }
+  .day-en, .day-vn { font-size: 12px; color: var(--muted); }
+  .day-status { font-size: 16px; }
   .day-status.done { color: var(--green); }
   .day-status.pending { color: var(--muted); }
-  .day-status.today { color: var(--accent); }
+  .day-status.today { color: var(--accent); background: #1e3a5f; padding: 2px 10px; border-radius: 10px; font-size: 12px; }
 
-  /* Stats */
   .stat-row {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 14px;
     border-bottom: 1px solid #1e293b;
   }
@@ -140,200 +222,448 @@
   .stat-label { color: var(--muted); }
   .stat-value { font-weight: 500; }
 
-  /* Todo */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
   .todo-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 0;
-    font-size: 13px;
+    padding: 10px 0;
+    font-size: 14px;
     border-bottom: 1px solid #1e293b;
   }
   .todo-item:last-child { border-bottom: none; }
-  .todo-item .check { width: 18px; height: 18px; }
   .todo-item.done .todo-text { text-decoration: line-through; color: var(--muted); }
 
-  /* Projects list */
   .proj-item {
-    padding: 6px 0;
-    font-size: 13px;
+    padding: 8px 0;
+    font-size: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
+    border-bottom: 1px solid #1e293b;
+  }
+  .proj-item:last-child { border-bottom: none; }
+
+  .folder-structure {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    padding: 8px 0;
+  }
+  .folder-structure .folder { color: var(--accent); }
+  .folder-structure .file { color: var(--muted); }
+  .folder-structure .indent { padding-left: 24px; }
+  .folder-structure .indent2 { padding-left: 48px; }
+  .folder-structure .highlight { color: var(--yellow); font-weight: 500; }
+
+  .backlog-category {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 12px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  @media (max-width: 700px) {
-    body { padding: 12px; }
-    .grid { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+    .sidebar { width: 56px; padding: 12px 0; }
+    .sidebar-header h1 { font-size: 0; }
+    .sidebar-header h1::after { content: '🚀'; font-size: 20px; }
+    .sidebar-header, .date-badge, .sidebar-group, .nav-item span:not(.icon) { display: none; }
+    .nav-item { justify-content: center; padding: 14px; }
+    .nav-item .badge { display: none; }
+    .main { margin-left: 56px; padding: 16px; max-width: calc(100% - 56px); }
+    .grid-2 { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>🚀 Mission Control</h1>
-  <div>
-    <span class="badge" id="dateDisplay"></span>
-    <span class="badge" style="margin-left:10px">🧠 deepseek-chat</span>
+<!-- ============ SIDEBAR ============ -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h1>🚀 MC</h1>
+    <div class="date-badge" id="sidebarDate"></div>
   </div>
-</div>
 
-<!-- Top: Status + System -->
-<div class="grid">
-  <div class="card">
-    <h2>⏰ Cron Jobs <span class="count">2 active</span></h2>
-    <div class="cron-item">
-      <div class="cron-time">6:00</div>
-      <div class="cron-info">
-        <div class="cron-title">📖 Bài EN Leadership</div>
-        <div class="cron-desc">→ Telegram Jason</div>
+  <div class="sidebar-group">Điều hướng</div>
+  <a class="nav-item active" data-page="dashboard" href="#">
+    <span class="icon">📊</span> <span>Dashboard</span>
+  </a>
+  <a class="nav-item" data-page="cron" href="#">
+    <span class="icon">⏰</span> <span>Cron Jobs</span> <span class="badge">2</span>
+  </a>
+  <a class="nav-item" data-page="leadership" href="#">
+    <span class="icon">📚</span> <span>Leadership</span> <span class="badge">8</span>
+  </a>
+
+  <div class="sidebar-group" style="margin-top:12px">Hệ thống</div>
+  <a class="nav-item" data-page="system" href="#">
+    <span class="icon">⚙️</span> <span>System</span>
+  </a>
+  <a class="nav-item" data-page="dropbox" href="#">
+    <span class="icon">🗄️</span> <span>Dropbox</span>
+  </a>
+
+  <div class="sidebar-group" style="margin-top:12px">Công việc</div>
+  <a class="nav-item" data-page="backlog" href="#">
+    <span class="icon">📋</span> <span>Backlog</span> <span class="badge">4</span>
+  </a>
+  <a class="nav-item" data-page="files" href="#">
+    <span class="icon">📁</span> <span>Project Files</span>
+  </a>
+</nav>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div class="main">
+
+  <!-- ====== DASHBOARD PAGE ====== -->
+  <div class="page active" id="page-dashboard">
+    <div class="page-header">
+      <h2>📊 Dashboard</h2>
+      <p id="dashboardDate"></p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>⏰ Hôm nay</h3>
+        <div class="cron-item">
+          <div class="cron-time">6:00</div>
+          <div class="cron-info">
+            <div class="cron-title">📖 Bài EN Leadership → Telegram</div>
+            <div class="cron-desc">Jason</div>
+          </div>
+          <span class="cron-status active">✅</span>
+        </div>
+        <div class="cron-item">
+          <div class="cron-time">6:10</div>
+          <div class="cron-info">
+            <div class="cron-title">📧 Bài VN Leadership → Email</div>
+            <div class="cron-desc">Quỳnh</div>
+          </div>
+          <span class="cron-status active">✅</span>
+        </div>
       </div>
-      <span class="cron-status active">✅ Active</span>
-    </div>
-    <div class="cron-item">
-      <div class="cron-time">6:10</div>
-      <div class="cron-info">
-        <div class="cron-title">📧 Bài VN Leadership</div>
-        <div class="cron-desc">→ Email Quỳnh</div>
+
+      <div class="card">
+        <h3>⚙️ Trạng thái</h3>
+        <div class="stat-row"><span class="stat-label">🖥️ Gateway</span><span class="stat-value"><span class="status-dot green"></span> Running</span></div>
+        <div class="stat-row"><span class="stat-label">📬 Telegram</span><span class="stat-value"><span class="status-dot green"></span> Connected</span></div>
+        <div class="stat-row"><span class="stat-label">📧 Gmail</span><span class="stat-value"><span class="status-dot green"></span> Authed</span></div>
+        <div class="stat-row"><span class="stat-label">📂 Dropbox</span><span class="stat-value"><span class="status-dot green"></span> Ready</span></div>
+        <div class="stat-row"><span class="stat-label">🧠 Model</span><span class="stat-value">deepseek-chat</span></div>
+        <div class="stat-row"><span class="stat-label">🌐 sslakd.com</span><span class="stat-value"><span class="status-dot green"></span> Live</span></div>
       </div>
-      <span class="cron-status active">✅ Active</span>
+    </div>
+
+    <div class="card">
+      <h3>📚 Leadership — Hôm nay <span class="count">Day 2 of 8</span></h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px;padding:12px;background:var(--card2);border-radius:8px">
+          <div style="font-size:12px;color:var(--muted)">📖 EN → Telegram</div>
+          <div style="font-size:15px;font-weight:500;margin-top:4px">Power & Politics</div>
+        </div>
+        <div style="flex:1;min-width:200px;padding:12px;background:var(--card2);border-radius:8px">
+          <div style="font-size:12px;color:var(--muted)">📧 VN → Email Quỳnh</div>
+          <div style="font-size:15px;font-weight:500;margin-top:4px">Quyền lực và Ảnh hưởng</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📋 Việc cần làm</h3>
+      <div class="todo-item"><span>⏳</span><span>Review screenshots trên Desktop (2 folders)</span></div>
+      <div class="todo-item"><span>⏳</span><span>Chủ đề mới sau Leadership</span></div>
+      <div class="todo-item"><span>⏳</span><span>Google Drive setup (OAuth)</span></div>
+      <div class="todo-item"><span>⏳</span><span>Google Photos → YouTube</span></div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>⚙️ System</h2>
-    <div class="stat-row"><span class="stat-label">🖥️ Gateway</span><span class="stat-value"><span class="status-dot green"></span> Running</span></div>
-    <div class="stat-row"><span class="stat-label">⏰ Cron Scheduler</span><span class="stat-value"><span class="status-dot green"></span> Active</span></div>
-    <div class="stat-row"><span class="stat-label">📬 Telegram</span><span class="stat-value"><span class="status-dot green"></span> Connected</span></div>
-    <div class="stat-row"><span class="stat-label">📧 Gmail</span><span class="stat-value"><span class="status-dot green"></span> Authed</span></div>
-    <div class="stat-row"><span class="stat-label">📂 Dropbox</span><span class="stat-value"><span class="status-dot green"></span> Connected</span></div>
-    <div class="stat-row"><span class="stat-label">🌐 sslakd.com</span><span class="stat-value"><span class="status-dot green"></span> Live</span></div>
-  </div>
-</div>
+  <!-- ====== CRON JOBS PAGE ====== -->
+  <div class="page" id="page-cron">
+    <div class="page-header">
+      <h2>⏰ Cron Jobs</h2>
+      <p>Tự động gửi bài học mỗi sáng</p>
+    </div>
 
-<!-- Learning Series -->
-<div class="card" style="margin-bottom:20px">
-  <h2>📚 Leadership Series (8 days)</h2>
-  <div class="day-row" data-day="1">
-    <div class="day-num">1</div>
-    <div class="day-title">
-      What Is Leadership?
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+    <div class="card">
+      <h3>📖 Bài EN Leadership <span class="count">6:00 daily</span></h3>
+      <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value"><span class="status-dot green"></span> Active</span></div>
+      <div class="stat-row"><span class="stat-label">Gửi đến</span><span class="stat-value">Telegram → Jason</span></div>
+      <div class="stat-row"><span class="stat-label">Nội dung</span><span class="stat-value">Leadership UEH ~300-400 từ + Glossary</span></div>
+      <div class="stat-row"><span class="stat-label">Tracker</span><span class="stat-value" id="trackerEn">Day 2</span></div>
+      <div class="stat-row"><span class="stat-label">Vòng lặp</span><span class="stat-value">8 ngày (reset)</span></div>
     </div>
-    <span class="day-status done">✅</span>
-  </div>
-  <div class="day-row" data-day="2">
-    <div class="day-num">2</div>
-    <div class="day-title">
-      Power & Politics
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status today">⬆️ Today</span>
-  </div>
-  <div class="day-row" data-day="3">
-    <div class="day-num">3</div>
-    <div class="day-title">
-      Traits & Skills
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-  <div class="day-row" data-day="4">
-    <div class="day-num">4</div>
-    <div class="day-title">
-      Leadership Styles
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-  <div class="day-row" data-day="5">
-    <div class="day-num">5</div>
-    <div class="day-title">
-      Situational Leadership
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-  <div class="day-row" data-day="6">
-    <div class="day-num">6</div>
-    <div class="day-title">
-      Transformational Leadership
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-  <div class="day-row" data-day="7">
-    <div class="day-num">7</div>
-    <div class="day-title">
-      Leading Change
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-  <div class="day-row" data-day="8">
-    <div class="day-num">8</div>
-    <div class="day-title">
-      Leadership in Practice
-      <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
-    </div>
-    <span class="day-status pending">⏳</span>
-  </div>
-</div>
 
-<!-- Backlog + Todo -->
-<div class="grid">
-  <div class="card">
-    <h2>📋 Backlog</h2>
-    <div class="todo-item done">
-      <span>✅</span>
-      <span class="todo-text">Setup cron EN 6h sáng</span>
-    </div>
-    <div class="todo-item done">
-      <span>✅</span>
-      <span class="todo-text">Setup cron VN email 6h10</span>
-    </div>
-    <div class="todo-item done">
-      <span>✅</span>
-      <span class="todo-text">Soạn 8 bài Leadership EN + VN</span>
-    </div>
-    <div class="todo-item">
-      <span>⏳</span>
-      <span>Chủ đề mới sau Leadership</span>
-    </div>
-    <div class="todo-item">
-      <span>⏳</span>
-      <span>Google Photos → YouTube</span>
-    </div>
-    <div class="todo-item">
-      <span>⏳</span>
-      <span>Google Drive setup (OAuth)</span>
-    </div>
-    <div class="todo-item">
-      <span>⏳</span>
-      <span>Review screenshots (2 folders)</span>
+    <div class="card">
+      <h3>📧 Bài VN Leadership <span class="count">6:10 daily</span></h3>
+      <div class="stat-row"><span class="stat-label">Trạng thái</span><span class="stat-value"><span class="status-dot green"></span> Active</span></div>
+      <div class="stat-row"><span class="stat-label">Gửi đến</span><span class="stat-value">Email → dangtoquynhpk@gmail.com</span></div>
+      <div class="stat-row"><span class="stat-label">Nội dung</span><span class="stat-value">Tiếng Việt, góc nhìn thu mua sân golf</span></div>
+      <div class="stat-row"><span class="stat-label">Tracker</span><span class="stat-value" id="trackerVn">Day 2</span></div>
+      <div class="stat-row"><span class="stat-label">Vòng lặp</span><span class="stat-value">8 ngày (reset)</span></div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>📁 Dropbox</h2>
-    <div class="proj-item">📚 <strong>Read when stuck!</strong> — Tài liệu UEH Leadership</div>
-    <div class="proj-item">📖 <strong>book/</strong> — IELTS, Hunger Games, The Alchemist...</div>
-    <div class="proj-item">🎨 <strong>portfolio/</strong> — Design portfolio</div>
-    <div class="proj-item">📂 <strong>CV/</strong> — CV các phiên bản</div>
-    <div class="proj-item">🎵 <strong>Strategies for Success</strong> — Audio CD</div>
-  </div>
-</div>
+  <!-- ====== LEADERSHIP PAGE ====== -->
+  <div class="page" id="page-leadership">
+    <div class="page-header">
+      <h2>📚 Leadership Series</h2>
+      <p>Tài liệu UEH — Nguyễn Hữu Lam</p>
+    </div>
 
-<div class="card" style="margin-top:20px;text-align:center">
-  <p style="color:var(--muted);font-size:12px" id="footerDate"></p>
+    <div class="card">
+      <h3>Tiến độ 8 ngày</h3>
+      <div class="day-row" data-day="1">
+        <div class="day-num">1</div>
+        <div class="day-title">
+          What Is Leadership?
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status done">✅</span>
+      </div>
+      <div class="day-row" data-day="2">
+        <div class="day-num">2</div>
+        <div class="day-title">
+          Power & Politics
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status today">Hôm nay</span>
+      </div>
+      <div class="day-row" data-day="3">
+        <div class="day-num">3</div>
+        <div class="day-title">
+          Traits & Skills
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+      <div class="day-row" data-day="4">
+        <div class="day-num">4</div>
+        <div class="day-title">
+          Leadership Styles
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+      <div class="day-row" data-day="5">
+        <div class="day-num">5</div>
+        <div class="day-title">
+          Situational Leadership
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+      <div class="day-row" data-day="6">
+        <div class="day-num">6</div>
+        <div class="day-title">
+          Transformational Leadership
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+      <div class="day-row" data-day="7">
+        <div class="day-num">7</div>
+        <div class="day-title">
+          Leading Change
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+      <div class="day-row" data-day="8">
+        <div class="day-num">8</div>
+        <div class="day-title">
+          Leadership in Practice
+          <div><span class="day-en">📖 EN → Telegram</span> · <span class="day-vn">📧 VN → Email Quỳnh</span></div>
+        </div>
+        <span class="day-status pending">⏳</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SYSTEM PAGE ====== -->
+  <div class="page" id="page-system">
+    <div class="page-header">
+      <h2>⚙️ System</h2>
+      <p>Trạng thái hạ tầng</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Kết nối</h3>
+        <div class="stat-row"><span class="stat-label">🖥️ Gateway</span><span class="stat-value"><span class="status-dot green"></span> 127.0.0.1:18789</span></div>
+        <div class="stat-row"><span class="stat-label">⏰ Cron Scheduler</span><span class="stat-value"><span class="status-dot green"></span> Active (2 jobs)</span></div>
+        <div class="stat-row"><span class="stat-label">📬 Telegram</span><span class="stat-value"><span class="status-dot green"></span> Connected</span></div>
+        <div class="stat-row"><span class="stat-label">📧 Gmail (sslakd@gmail.com)</span><span class="stat-value"><span class="status-dot green"></span> OAuth</span></div>
+        <div class="stat-row"><span class="stat-label">📂 Dropbox</span><span class="stat-value"><span class="status-dot green"></span> rclone</span></div>
+      </div>
+
+      <div class="card">
+        <h3>Thông tin</h3>
+        <div class="stat-row"><span class="stat-label">🧠 Model</span><span class="stat-value">deepseek/deepseek-chat</span></div>
+        <div class="stat-row"><span class="stat-label">🌐 sslakd.com</span><span class="stat-value"><span class="status-dot green"></span> GitHub Pages</span></div>
+        <div class="stat-row"><span class="stat-label">🤖 Agent</span><span class="stat-value">Nani</span></div>
+        <div class="stat-row"><span class="stat-label">🕐 Timezone</span><span class="stat-value">Asia/Saigon (UTC+7)</span></div>
+        <div class="stat-row"><span class="stat-label">💻 Host</span><span class="stat-value">Son's Mac mini (ARM)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== DROPBOX PAGE ====== -->
+  <div class="page" id="page-dropbox">
+    <div class="page-header">
+      <h2>🗄️ Dropbox</h2>
+      <p>dropbox_sslakd — scan/Read when stuck!/</p>
+    </div>
+
+    <div class="card">
+      <h3>Cấu trúc thư mục</h3>
+      <div class="folder-structure">
+        <div class="folder">📁 Dropbox</div>
+        <div class="indent folder">📁 book/</div>
+        <div class="indent2 file">📄 IELTS, Hunger Games, The Alchemist...</div>
+        <div class="indent folder">📁 anhthe/</div>
+        <div class="indent folder">📁 CV/</div>
+        <div class="indent2 file">📄 CV các phiên bản</div>
+        <div class="indent folder">📁 portfolio/</div>
+        <div class="indent2 file">🎨 Design portfolio</div>
+        <div class="indent folder">📁 public/</div>
+        <div class="indent2 file">📄 CV + portfolio public</div>
+        <div class="indent folder">📁 Screenshots/</div>
+        <div class="indent folder">📁 scan/</div>
+        <div class="indent2 folder highlight">📁 📁 Read when stuck!/</div>
+        <div class="indent2" style="padding-left:72px;color:var(--muted)">📄 UEH: OD, OB, HRM, Leadership, Finance, SPSS...</div>
+        <div class="indent folder">📁 Strategies for Success/</div>
+        <div class="indent2 file">🎵 Audio CD</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BACKLOG PAGE ====== -->
+  <div class="page" id="page-backlog">
+    <div class="page-header">
+      <h2>📋 Backlog</h2>
+      <p>Công việc đã làm + cần làm</p>
+    </div>
+
+    <div class="card">
+      <h3>✅ Đã hoàn thành</h3>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Setup cron EN 6h sáng</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Setup cron VN email 6h10</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Test both cron jobs</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Soạn 8 bài Leadership EN</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Soạn 8 bài VN cho Quỳnh</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Tạo Mission Control Board</span></div>
+      <div class="todo-item done"><span>✅</span><span class="todo-text">Deploy lên GitHub Pages</span></div>
+    </div>
+
+    <div class="card">
+      <h3>⏳ Đang chờ</h3>
+      <div class="todo-item"><span>⏳</span><span>Review screenshots (2 folders trên Desktop)</span></div>
+      <div class="todo-item"><span>⏳</span><span>Chủ đề mới sau Leadership</span></div>
+      <div class="todo-item"><span>⏳</span><span>Google Drive setup (OAuth credentials)</span></div>
+      <div class="todo-item"><span>⏳</span><span>Google Photos → YouTube pipeline</span></div>
+      <div class="todo-item"><span>⏳</span><span>sslakd.com Hugo site updates</span></div>
+    </div>
+
+    <div class="card">
+      <h3>💡 Ý tưởng</h3>
+      <div class="todo-item"><span>💡</span><span>Giao tiếp & Đàm phán (cho Quỳnh — thu mua)</span></div>
+      <div class="todo-item"><span>💡</span><span>Quản lý tài chính cá nhân</span></div>
+      <div class="todo-item"><span>💡</span><span>Quản lý thời gian / 80/20</span></div>
+      <div class="todo-item"><span>💡</span><span>Automated daily backup cron</span></div>
+    </div>
+  </div>
+
+  <!-- ====== FILES PAGE ====== -->
+  <div class="page" id="page-files">
+    <div class="page-header">
+      <h2>📁 Project Files</h2>
+      <p>Workspace leadership-reading/</p>
+    </div>
+
+    <div class="card">
+      <h3>📖 Bài EN (8 files)</h3>
+      <div class="proj-item">📄 lesson-01-leadership-defined.md</div>
+      <div class="proj-item">📄 lesson-02-power-and-politics.md</div>
+      <div class="proj-item">📄 lesson-03-traits-and-skills.md</div>
+      <div class="proj-item">📄 lesson-04-leadership-styles.md</div>
+      <div class="proj-item">📄 lesson-05-situational-leadership.md</div>
+      <div class="proj-item">📄 lesson-06-transformational-leadership.md</div>
+      <div class="proj-item">📄 lesson-07-leading-change.md</div>
+      <div class="proj-item">📄 lesson-08-leadership-in-practice.md</div>
+    </div>
+
+    <div class="card">
+      <h3>📧 Bài VN (8 files)</h3>
+      <div class="proj-item">📄 vn-lesson-01.md → vn-lesson-08.md</div>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Trackers</h3>
+      <div class="proj-item">📄 .tracker — EN day counter</div>
+      <div class="proj-item">📄 .vn-tracker — VN day counter</div>
+    </div>
+  </div>
+
 </div>
 
 <script>
+  // Date
   const today = new Date();
-  document.getElementById('dateDisplay').textContent = today.toLocaleDateString('vi-VN', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  document.getElementById('sidebarDate').textContent = today.toLocaleDateString('vi-VN', {
+    weekday: 'long', month: 'short', day: 'numeric'
   });
-  document.getElementById('footerDate').textContent = 'Cập nhật: ' + today.toLocaleString('vi-VN') + ' · Made with 🤖 by Nani';
+  const dashDate = document.getElementById('dashboardDate');
+  if (dashDate) {
+    dashDate.textContent = today.toLocaleDateString('vi-VN', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    }) + ' · ' + today.toLocaleTimeString('vi-VN');
+  }
+
+  // Sidebar navigation
+  const navLinks = document.querySelectorAll('.nav-item');
+  const pages = document.querySelectorAll('.page');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const page = this.dataset.page;
+
+      // Update nav
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+
+      // Update page
+      pages.forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + page);
+      if (target) target.classList.add('active');
+
+      // Scroll top
+      document.querySelector('.main').scrollTop = 0;
+    });
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    const map = {
+      '1': 'dashboard',
+      '2': 'cron',
+      '3': 'leadership',
+      '4': 'system',
+      '5': 'dropbox',
+      '6': 'backlog',
+      '7': 'files'
+    };
+    if (e.key in map && !e.ctrlKey && !e.metaKey) {
+      const link = document.querySelector(`.nav-item[data-page="${map[e.key]}"]`);
+      if (link) link.click();
+    }
+  });
 </script>
 </body>
 </html>
