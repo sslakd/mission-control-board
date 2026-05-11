@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🚀 Mission Control — Jason</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 <style>
   :root{--bg:#0f172a;--card:#1e293b;--card2:#334155;--sidebar:#0b1121;--accent:#38bdf8;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;--hover:#1e3a5f;--active:#1e3a5f}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -36,8 +38,6 @@
   .cron-info{flex:1}
   .cron-title{font-size:14px;font-weight:500}
   .cron-desc{font-size:12px;color:var(--muted)}
-  .cron-status{font-size:12px;padding:3px 10px;border-radius:10px}
-  .cron-status.active{background:#166534;color:var(--green)}
   .day-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #1e293b;gap:10px;font-size:14px}
   .day-row:last-child{border-bottom:none}
   .day-num{background:var(--card2);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0}
@@ -55,21 +55,40 @@
   .tag.blue{background:#1e3a5f;color:var(--accent)}
   .tag.yellow{background:#713f12;color:var(--yellow)}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .todo-item{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:14px;border-bottom:1px solid #1e293b}
   .todo-item:last-child{border-bottom:none}
   .todo-item.done .todo-text{text-decoration:line-through;color:var(--muted)}
   .proj-item{padding:8px 0;font-size:14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1e293b}
   .proj-item:last-child{border-bottom:none}
   a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
+  a:hover{text-decoration:underline;color:#7dd3fc}
+  .markdown-body{background:transparent!important;color:var(--text)!important;padding:0!important}
+  .markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4{color:var(--accent)!important;border-bottom:1px solid var(--border)!important}
+  .markdown-body p,.markdown-body li{color:var(--text)!important}
+  .markdown-body code{background:var(--card2)!important;color:var(--yellow)!important}
+  .markdown-body pre{background:var(--card2)!important;border:1px solid var(--border)!important}
+  .markdown-body table{border-color:var(--border)!important}
+  .markdown-body th,.markdown-body td{border-color:var(--border)!important;background:var(--card)!important}
+  .file-link{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;transition:background .15s;cursor:pointer;font-size:13px}
+  .file-link:hover{background:var(--hover)}
+  .file-link i{width:18px;text-align:center}
+  .md-viewer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:1000;padding:40px;overflow-y:auto}
+  .md-viewer.open{display:block}
+  .md-viewer .md-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .md-viewer .md-toolbar h3{color:var(--text);font-size:16px}
+  .md-viewer .md-toolbar button{background:var(--card2);border:none;color:var(--text);padding:8px 16px;border-radius:8px;cursor:pointer}
+  .md-viewer .md-toolbar button:hover{background:var(--hover)}
+  .md-viewer .markdown-body{max-width:800px;margin:0 auto;background:var(--card)!important;padding:32px!important;border-radius:12px;border:1px solid var(--border)}
   @media(max-width:768px){
-    .sidebar{width:56px;padding:12px 0}
-    .sidebar-header h1{font-size:0}
+    .sidebar{width:56px;padding:12px 0;overflow:visible}
+    .sidebar-header h1{font-size:0;width:100%}
     .sidebar-header h1::after{content:'🚀';font-size:20px}
     .sidebar-header,.date-badge,.sidebar-group,.nav-item span:not(.icon){display:none}
     .nav-item{justify-content:center;padding:14px}.nav-item .badge{display:none}
     .main{margin-left:56px;padding:16px;max-width:calc(100% - 56px)}
-    .grid-2{grid-template-columns:1fr}
+    .grid-2,.grid-3{grid-template-columns:1fr}
+    .md-viewer{padding:16px}
   }
 </style>
 </head>
@@ -92,8 +111,7 @@
   <a class="nav-item" data-page="website" href="#"><span class="icon"><i class="fas fa-globe"></i></span><span>sslakd.com</span></a>
   <div class="sidebar-group">Hệ thống</div>
   <a class="nav-item" data-page="system" href="#"><span class="icon"><i class="fas fa-cog"></i></span><span>System</span></a>
-  <a class="nav-item" data-page="dropbox" href="#"><span class="icon"><i class="fas fa-folder-open"></i></span><span>Dropbox</span></a>
-  <a class="nav-item" data-page="files" href="#"><span class="icon"><i class="fas fa-folder"></i></span><span>Project Files</span></a>
+  <a class="nav-item" data-page="files" href="#"><span class="icon"><i class="fas fa-folder"></i></span><span>Openclaw Files</span></a>
 </nav>
 
 <div class="main">
@@ -158,10 +176,10 @@
 </div>
 
 <div class="page" id="page-leadership">
-  <div class="page-header"><h2><i class="fas fa-book-open"></i> Leadership Series</h2><p>UEH — 8 ngày · <code>Desktop/Openclaw/17_Leadership_Series/</code></p></div>
+  <div class="page-header"><h2><i class="fas fa-book-open"></i> Leadership Series</h2><p>UEH — 8 ngày</p></div>
   <div class="card"><h3>Tiến độ</h3>
-    <div class="day-row"><div class="day-num">1</div><div class="day-title">What Is Leadership? <span style="font-size:12px;color:var(--muted)">EN + VN: Lãnh đạo là gì?</span></div><span class="day-status done"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
-    <div class="day-row"><div class="day-num">2</div><div class="day-title">Power & Politics</div><span class="day-status today">Hôm nay</span></div>
+    <div class="day-row"><div class="day-num">1</div><div class="day-title">What Is Leadership? — <a href="#" class="md-file" data-path="leadership-reading/lesson-01-leadership-defined.md"><i class="fas fa-file-alt"></i> EN</a> · <a href="#" class="md-file" data-path="leadership-reading/vn-lesson-01.md"><i class="fas fa-file-alt"></i> VN</a></div><span class="day-status done"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
+    <div class="day-row"><div class="day-num">2</div><div class="day-title">Power & Politics — <a href="#" class="md-file" data-path="leadership-reading/lesson-02-power-and-politics.md"><i class="fas fa-file-alt"></i> EN</a></div><span class="day-status today">Hôm nay</span></div>
     <div class="day-row"><div class="day-num">3</div><div class="day-title">Traits & Skills</div><span class="day-status pending"></span></div>
     <div class="day-row"><div class="day-num">4</div><div class="day-title">Leadership Styles</div><span class="day-status pending"></span></div>
     <div class="day-row"><div class="day-num">5</div><div class="day-title">Situational Leadership</div><span class="day-status pending"></span></div>
@@ -175,17 +193,21 @@
   <div class="page-header"><h2><i class="fas fa-gamepad"></i> Game Dev</h2><p>3 dự án</p></div>
   <div class="card"><h3>3QR — Three Kingdoms Roguelite <span class="count tag green">Running</span></h3>
     <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Godot 4</span></div>
-    <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">14_Game_ThreeKingdoms/</span></div>
+    <div class="stat-row"><span class="stat-label">Files</span><span class="stat-value">
+      <a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/3QR_CODENAME.md"><i class="fas fa-file-alt"></i></a>
+      <a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/3QR_GDD_WITH_FACTION_CARDS.md"><i class="fas fa-file-alt"></i> GDD</a>
+      <a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/SOLO_DEV_SCOPE.md"><i class="fas fa-file-alt"></i> Scope</a>
+    </span></div>
     <div class="stat-row"><span class="stat-label"><i class="fas fa-exclamation-triangle" style="color:var(--yellow)"></i></span><span class="stat-value">UID warning UI.tscn</span></div>
   </div>
   <div class="grid-2">
     <div class="card"><h3>Double Agent <span class="count tag blue">Design</span></h3>
-      <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">12_Game_DoubleAgent/</span></div>
-      <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> GDD xong</div>
+      <div class="file-link"><a href="#" class="md-file" data-path="12_Game_DoubleAgent/GAME_DESIGN_DOCUMENT.md"><i class="fas fa-file-alt"></i> GDD</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="12_Game_DoubleAgent/QUICK_START_CHECKLIST.md"><i class="fas fa-file-alt"></i> Checklist</a></div>
     </div>
     <div class="card"><h3>Iron Throne Medieval <span class="count tag blue">Design</span></h3>
-      <div class="stat-row"><span class="stat-label">Folder</span><span class="stat-value">13_Game_Medieval/</span></div>
-      <div class="proj-item"><i class="fas fa-check-circle" style="color:var(--green)"></i> GDD xong</div>
+      <div class="file-link"><a href="#" class="md-file" data-path="13_Game_Medieval/IRON_THRONE_GAMBIT.md"><i class="fas fa-file-alt"></i> GDD</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="13_Game_Medieval/SOLO_DEV_SCOPE.md"><i class="fas fa-file-alt"></i> Scope</a></div>
     </div>
   </div>
 </div>
@@ -194,28 +216,30 @@
   <div class="page-header"><h2><i class="fas fa-file-alt"></i> CV & Remote Jobs</h2></div>
   <div class="card"><h3><i class="fas fa-user-tie"></i> Hồ sơ</h3>
     <div class="stat-row"><span class="stat-label">Vị trí</span><span class="stat-value">Senior Remote PM</span></div>
-    <div class="stat-row"><span class="stat-label">Kinh nghiệm</span><span class="stat-value">13+ năm · Agile/Scrum</span></div>
-    <div class="stat-row"><span class="stat-label">Website</span><span class="stat-value">sslakd.com</span></div>
+    <div class="stat-row"><span class="stat-label">Website</span><span class="stat-value"><a href="https://sslakd.com" target="_blank">sslakd.com <i class="fas fa-external-link-alt"></i></a></span></div>
   </div>
   <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-folder"></i> Files</h3>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>11_CV_Portfolio/</strong> — CV, optimized, deploy guide</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>10_Remote_Jobs_PM/</strong> — strategy, analysis, tracking</div>
-      <div class="proj-item"><i class="fas fa-file-alt" style="color:var(--yellow)"></i> LINKEDIN_CONTENT.md (mới)</div>
+    <div class="card"><h3><i class="fas fa-folder"></i> CV Files</h3>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/NGUYEN_DINH_PHUOC_SON_CV.md"><i class="fas fa-file-alt"></i> CV chính</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/CV_OPTIMIZED_FOR_REMOTE_PM.md"><i class="fas fa-file-alt"></i> Remote-optimized</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/CV_REMOTE_KEYWORD_SUMMARY.md"><i class="fas fa-file-alt"></i> Keywords</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/DEPLOY_GUIDE.md"><i class="fas fa-file-alt"></i> Deploy guide</a></div>
     </div>
-    <div class="card"><h3>Kế hoạch 30 ngày</h3>
-      <div class="stat-row"><span class="stat-label">Tuần 1</span><span class="stat-value">CV & LinkedIn</span></div>
-      <div class="stat-row"><span class="stat-label">Tuần 2</span><span class="stat-value">Apply 20-30 jobs</span></div>
-      <div class="stat-row"><span class="stat-label">Tuần 3</span><span class="stat-value">Phỏng vấn</span></div>
-      <div class="stat-row"><span class="stat-label">Tuần 4</span><span class="stat-value">Negotiate</span></div>
+    <div class="card"><h3><i class="fas fa-folder"></i> Remote Jobs</h3>
+      <div class="file-link"><a href="#" class="md-file" data-path="10_Remote_Jobs_PM/JOB_SEARCH_STRATEGY.md"><i class="fas fa-file-alt"></i> Strategy</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="10_Remote_Jobs_PM/REMOTE_PM_JOBS_ANALYSIS.md"><i class="fas fa-file-alt"></i> Analysis</a></div>
     </div>
+  </div>
+  <div class="card"><h3><i class="fas fa-file-alt" style="color:var(--yellow)"></i> LinkedIn</h3>
+    <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/cv-and-jobs/LINKEDIN_CONTENT.md"><i class="fas fa-file-alt"></i> LINKEDIN_CONTENT.md</a></div>
   </div>
 </div>
 
 <div class="page" id="page-website">
   <div class="page-header"><h2><i class="fas fa-globe"></i> sslakd.com</h2><p>Hugo · GitHub Pages</p></div>
   <div class="card"><h3>Thông tin</h3>
-    <div class="stat-row"><span class="stat-label">URL</span><span class="stat-value">sslakd.com</span></div>
+    <div class="stat-row"><span class="stat-label">URL</span><span class="stat-value"><a href="https://sslakd.com" target="_blank">sslakd.com <i class="fas fa-external-link-alt"></i></a></span></div>
+    <div class="stat-row"><span class="stat-label">GitHub</span><span class="stat-value"><a href="https://github.com/sslakd/Jason-hut" target="_blank">github.com/sslakd/Jason-hut <i class="fas fa-external-link-alt"></i></a></span></div>
     <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Hugo + coder theme</span></div>
     <div class="stat-row"><span class="stat-label">Local</span><span class="stat-value">~/Desktop/jason-hut-new/</span></div>
   </div>
@@ -229,6 +253,7 @@
       <div class="stat-row"><span class="stat-label">Cron</span><span class="stat-value">2 jobs</span></div>
       <div class="stat-row"><span class="stat-label">Gmail</span><span class="stat-value">sslakd@gmail.com</span></div>
       <div class="stat-row"><span class="stat-label">Dropbox</span><span class="stat-value">rclone</span></div>
+      <div class="stat-row"><span class="stat-label">Repo</span><span class="stat-value"><a href="https://github.com/sslakd/mission-control-board" target="_blank">mc-board <i class="fas fa-external-link-alt"></i></a></span></div>
     </div>
     <div class="card"><h3>Thông tin</h3>
       <div class="stat-row"><span class="stat-label">Agent</span><span class="stat-value">Nani</span></div>
@@ -238,89 +263,56 @@
   </div>
 </div>
 
-<div class="page" id="page-dropbox">
-  <div class="page-header"><h2><i class="fas fa-folder-open"></i> Dropbox</h2></div>
-  <div class="card"><h3>Cấu trúc</h3>
-    <div style="font-family:monospace;font-size:13px;line-height:2">
-      <i class="fas fa-folder"></i> Dropbox/book/<br>
-      <i class="fas fa-folder"></i> CV/<br>
-      <i class="fas fa-folder"></i> portfolio/<br>
-      <i class="fas fa-folder"></i> scan/<br>
-      &nbsp;&nbsp;<i class="fas fa-folder" style="color:var(--yellow)"></i> Read when stuck! (UEH)
-    </div>
-  </div>
-</div>
-
 <div class="page" id="page-files">
-  <div class="page-header"><h2><i class="fas fa-folder"></i> Desktop/Openclaw/</h2><p>Đã dọn sạch workspace, move hết file vào đây</p></div>
-  <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-folder-open"></i> Thư mục</h3>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">01_Find_Rental_House</strong> (52 files)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">02_Budget_Tracker</strong> (3 files)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">04_Facebook_Automation</strong> (53 files)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">05_Speech_To_Text</strong> (6 files)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">08_Gmail_GoogleDrive</strong> (15 files)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">10_Remote_Jobs_PM</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">11_CV_Portfolio</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">12-14_Game_*</strong> (3 game projects)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">17_Leadership_Series</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong style="color:var(--accent)">18_Mission_Control</strong> (2 files)</div>
+  <div class="page-header"><h2><i class="fas fa-folder"></i> Desktop/Openclaw/</h2><p>Click file để xem nội dung</p></div>
+  <div class="grid-3">
+    <div class="card"><h3>01_Rental</h3>
+      <div class="file-link"><a href="#" class="md-file" data-path="01_Find_Rental_House/rental_analysis_summary.md">Phân tích thuê nhà</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="01_Find_Rental_House/rental_spreadsheet_complete.md">Spreadsheet tổng hợp</a></div>
     </div>
-    <div class="card"><h3><i class="fas fa-check-circle" style="color:var(--green)"></i> <code>.openclaw/workspace/</code></h3>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> AGENTS.md, SOUL.md,</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> USER.md, IDENTITY.md</div>
-      <div class="proj-item"><i class="fas fa-file-alt"></i> HEARTBEAT.md, TOOLS.md</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> memory/ (daily logs)</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> state/, reports/</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>leadership-reading/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>cv-and-jobs/</strong></div>
+    <div class="card"><h3>10-11 CV & Jobs</h3>
+      <div class="file-link"><a href="#" class="md-file" data-path="10_Remote_Jobs_PM/JOB_SEARCH_STRATEGY.md">Job strategy</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/NGUYEN_DINH_PHUOC_SON_CV.md">CV chính</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/cv-and-jobs/LINKEDIN_CONTENT.md">LinkedIn content</a></div>
     </div>
-  </div>
-  <div class="card" style="border:2px solid var(--yellow)">
-    <h3><i class="fas fa-check-circle" style="color:var(--green)"></i> Đã move hết!</h3>
-    <p style="font-size:14px;color:var(--muted);line-height:1.6">
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Rental:</strong> 52 files → 01_Find_Rental_House/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Budget:</strong> 3 files → 02_Budget_Tracker/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Facebook:</strong> 53 files → 04_Facebook_Automation/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Speech:</strong> 6 files → 05_Speech_To_Text/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Gmail:</strong> 15 files → 08_Gmail_GoogleDrive/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Mission Control:</strong> 2 files → 18_Mission_Control/<br>
-      <i class="fas fa-check" style="color:var(--green)"></i> <strong>Workspace:</strong> chỉ giữ file hệ thống + cron files
-    </p>
-  </div>
-</div>
-  <div class="page-header"><h2><i class="fas fa-folder"></i> Desktop/Openclaw/</h2><p>Cấu trúc thư mục đầy đủ</p></div>
-  <div class="grid-2">
-    <div class="card"><h3>Dự án</h3>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>10_Remote_Jobs_PM/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>11_CV_Portfolio/</strong> + cv-and-jobs/</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>12_Game_DoubleAgent/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>13_Game_Medieval/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>14_Game_ThreeKingdoms/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>17_Leadership_Series/</strong> ← mới</div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>18_Mission_Control/</strong> ← mới</div>
-    </div>
-    <div class="card"><h3>Tiện ích</h3>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>15_Photo_Enhancement/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>16_Medical_Records/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>Python_Scripts/</strong></div>
-      <div class="proj-item"><i class="fas fa-folder"></i> <strong>01-09_* /</strong> (rental, budget, english, facebook...)</div>
+    <div class="card"><h3>12-14 Games</h3>
+      <div class="file-link"><a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/3QR_GDD_WITH_FACTION_CARDS.md">3QR GDD</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="12_Game_DoubleAgent/GAME_DESIGN_DOCUMENT.md">Double Agent GDD</a></div>
+      <div class="file-link"><a href="#" class="md-file" data-path="13_Game_Medieval/IRON_THRONE_GAMBIT.md">Iron Throne GDD</a></div>
     </div>
   </div>
   <div class="card" style="border-color:var(--yellow)">
-    <h3><i class="fas fa-info-circle" style="color:var(--yellow)"></i> ➡️ Từ nay mọi file mới lưu tại</h3>
-    <p style="font-size:16px;font-weight:600;text-align:center;padding:12px;color:var(--accent)">
-      <i class="fas fa-folder-open"></i> ~/Desktop/Openclaw/XX_Tên_Folder/
-    </p>
-  </div>
+    <h3><i class="fas fa-lightbulb" style="color:var(--yellow)"></i> Click bất kỳ file .md nào để xem nội dung</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.6">
+      File được render từ <code>~/Desktop/Openclaw/</code> qua Markdown viewer tích hợp sẵn.<br>
+      Dùng <kbd>Esc</kbd> hoặc nút <i class="fas fa-times"></i> để đóng.
+    </p  </div>
 </div>
 
 </div><!-- /main -->
 
+<!-- ====== MARKDOWN VIEWER MODAL ====== -->
+<div class="md-viewer" id="mdViewer">
+  <div class="md-toolbar">
+    <h3><i class="fas fa-file-alt"></i> <span id="mdFileName">Viewing file</span></h3>
+    <div>
+      <button onclick="window.open(document.getElementById('mdSource').href, '_blank')" title="Open raw"><i class="fas fa-external-link-alt"></i> Raw</button>
+      <button onclick="closeMdViewer()"><i class="fas fa-times"></i> Close</button>
+    </div>
+  </div>
+  <div class="markdown-body" id="mdContent">
+    <p style="color:var(--muted);text-align:center;padding:40px"><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+  </div>
+  <a id="mdSource" target="_blank" style="display:none"></a>
+</div>
+
 <script>
-  document.getElementById('sidebarDate').textContent=new Date().toLocaleDateString('vi-VN',{weekday:'long',month:'short',day:'numeric'});
+  // === Date ===
+  document.getElementById('sidebarDate').textContent = new Date().toLocaleDateString('vi-VN',{weekday:'long',month:'short',day:'numeric'});
   const dd=document.getElementById('dashboardDate');
   if(dd)dd.textContent=new Date().toLocaleString('vi-VN',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+
+  // === Navigation ===
   document.querySelectorAll('.nav-item').forEach(l=>{
     l.addEventListener('click',function(e){
       e.preventDefault();
@@ -332,8 +324,82 @@
     });
   });
   document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMdViewer();return}
     const m={'1':'dashboard','2':'backlog','3':'cron','4':'leadership','5':'games','6':'cvjobs','7':'website','8':'system','9':'backlog'};
     if(e.key in m){const el=document.querySelector('.nav-item[data-page="'+m[e.key]+'"]');if(el)el.click()}
+  });
+
+  // === Markdown Viewer ===
+  // GitHub raw base URL (file từ mission-control-board repo/docs/)
+  const RAW_BASE = 'https://raw.githubusercontent.com/sslakd/mission-control-board/main/docs/';
+  // Fallback: nếu file không có trong repo, dùng direct GitHub repo browse
+  const GH_BASE = 'https://github.com/sslakd/mission-control-board/blob/main/docs/';
+
+  let mdViewer = document.getElementById('mdViewer');
+  let mdContent = document.getElementById('mdContent');
+  let mdFileName = document.getElementById('mdFileName');
+
+  function escapeHtml(text) {
+    const d=document.createElement('div');d.appendChild(document.createTextNode(text));return d.innerHTML;
+  }
+
+  function closeMdViewer() {
+    mdViewer.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  // Click handler for all .md-file links
+  document.querySelectorAll('.md-file').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const filePath = this.dataset.path;
+      if(!filePath) return;
+
+      const fileName = filePath.split('/').pop();
+      mdFileName.textContent = fileName;
+      mdContent.innerHTML = '<p style="color:var(--muted);text-align:center;padding:40px"><i class="fas fa-spinner fa-spin"></i> Loading ' + escapeHtml(fileName) + '...</p>';
+
+      // Try to fetch from raw GitHub
+      const rawUrl = RAW_BASE + filePath;
+      document.getElementById('mdSource').href = rawUrl;
+
+      fetch(rawUrl)
+        .then(r => {
+          if(!r.ok) throw new Error('Not found: ' + r.status);
+          return r.text();
+        })
+        .then(text => {
+          // Render markdown
+          const html = marked.parse(text);
+          mdContent.innerHTML = html;
+        })
+        .catch(err => {
+          // Fallback: try with encodeURI
+          const fallbackUrl = RAW_BASE + encodeURIComponent(filePath);
+          return fetch(fallbackUrl).then(r => {
+            if(!r.ok) throw new Error('Fallback also failed');
+            return r.text();
+          }).then(text => {
+            mdContent.innerHTML = marked.parse(text);
+          }).catch(() => {
+            mdContent.innerHTML = '<div style="text-align:center;padding:40px;color:var(--yellow)">' +
+              '<p><i class="fas fa-exclamation-triangle" style="font-size:48px;display:block;margin-bottom:16px"></i></p>' +
+              '<p>Không thể tải file. Vui lòng kiểm tra:</p>' +
+              '<p style="font-size:12px;color:var(--muted);margin-top:8px">' + escapeHtml(filePath) + '</p>' +
+              '<p style="margin-top:12px"><a href="' + GH_BASE + filePath + '" target="_blank" style="color:var(--accent)">' +
+              '<i class="fas fa-external-link-alt"></i> Xem trên GitHub</a></p></div>';
+          });
+        });
+
+      mdViewer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close on backdrop click
+  mdViewer.addEventListener('click', function(e) {
+    if(e.target === this) closeMdViewer();
   });
 </script>
 </body>
