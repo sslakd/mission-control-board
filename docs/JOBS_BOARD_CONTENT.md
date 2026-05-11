@@ -80,7 +80,7 @@ Tôi thành thạo remote collaboration tools (Jira, Confluence, Slack, Miro, Fi
 Mong được trao đổi thêm về cơ hội tại [Company Name].
 
 Trân trọng,
-Nguyễn Đình Phước Sơn
+Nguyễn Đinh Phước Sơn
 sslakd@gmail.com | sslakd.com | +84 91 984 6835
 ```
 
@@ -217,7 +217,7 @@ Upload PDF CV làm attachment.
 ## 9. CareerBuilder Vietnam (🇻🇳)
 ### Profile Tên
 ```
-Nguyễn Đình Phước Sơn - Senior Project Manager (Remote)
+Nguyễn Đinh Phước Sơn - Senior Project Manager (Remote)
 ```
 Upload PDF CV. Dùng cover letter Tiếng Việt từ TopDev.
 
