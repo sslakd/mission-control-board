@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🚀 Mission Control — Jason</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root {
     --bg: #0f172a; --card: #1e293b; --card2: #334155;
@@ -23,7 +24,8 @@
   .nav-item { display:flex; align-items:center; gap:12px; padding:12px 20px; cursor:pointer; color:var(--muted); font-size:14px; border-left:3px solid transparent; transition:all .15s; text-decoration:none; }
   .nav-item:hover { background:var(--hover); color:var(--text); }
   .nav-item.active { background:var(--active); color:var(--accent); border-left-color:var(--accent); font-weight:500; }
-  .nav-item .icon { font-size:18px; min-width:24px; }
+  .nav-item .icon { font-size:18px; min-width:24px; text-align:center; }
+  .nav-item .fa-fw { width:1.25em; text-align:center; }
   .nav-item .badge { margin-left:auto; background:var(--card2); font-size:11px; padding:2px 8px; border-radius:10px; color:var(--muted); }
   .nav-item.active .badge { background:#1e3a5f; color:var(--accent); }
   .sidebar-group { padding:8px 20px 4px; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:#475569; font-weight:600; }
@@ -87,19 +89,19 @@
     <div class="date-badge" id="sidebarDate"></div>
   </div>
   <div class="sidebar-group">Tổng quan</div>
-  <a class="nav-item active" data-page="dashboard" href="#"><span class="icon">📊</span><span>Dashboard</span></a>
+  <a class="nav-item active" data-page="dashboard" href="#"><span class="icon"><i class="fas fa-chart-pie fa-fw"></i></span><span>Dashboard</span></a>
   <div class="sidebar-group">Tự động</div>
-  <a class="nav-item" data-page="backlog" href="#"><span class="icon">📋</span><span>Backlog</span><span class="badge">5</span></a>
-  <a class="nav-item" data-page="cron" href="#"><span class="icon">⏰</span><span>Cron Jobs</span><span class="badge">2</span></a>
-  <a class="nav-item" data-page="leadership" href="#"><span class="icon">📚</span><span>Leadership</span><span class="badge">8</span></a>
+  <a class="nav-item" data-page="backlog" href="#"><span class="icon"><i class="fas fa-clipboard-list fa-fw"></i></span><span>Backlog</span><span class="badge">5</span></a>
+  <a class="nav-item" data-page="cron" href="#"><span class="icon"><i class="fas fa-clock fa-fw"></i></span><span>Cron Jobs</span><span class="badge">2</span></a>
+  <a class="nav-item" data-page="leadership" href="#"><span class="icon"><i class="fas fa-book-open fa-fw"></i></span><span>Leadership</span><span class="badge">8</span></a>
   <div class="sidebar-group">Dự án chính</div>
-  <a class="nav-item" data-page="games" href="#"><span class="icon">🎮</span><span>Game Dev</span><span class="badge">3</span></a>
-  <a class="nav-item" data-page="cvjobs" href="#"><span class="icon">📄</span><span>CV & Jobs</span></a>
-  <a class="nav-item" data-page="website" href="#"><span class="icon">🌐</span><span>sslakd.com</span></a>
+  <a class="nav-item" data-page="games" href="#"><span class="icon"><i class="fas fa-gamepad fa-fw"></i></span><span>Game Dev</span><span class="badge">3</span></a>
+  <a class="nav-item" data-page="cvjobs" href="#"><span class="icon"><i class="fas fa-file-alt fa-fw"></i></span><span>CV & Jobs</span></a>
+  <a class="nav-item" data-page="website" href="#"><span class="icon"><i class="fas fa-globe fa-fw"></i></span><span>sslakd.com</span></a>
   <div class="sidebar-group">Hệ thống</div>
-  <a class="nav-item" data-page="system" href="#"><span class="icon">⚙️</span><span>System</span></a>
-  <a class="nav-item" data-page="dropbox" href="#"><span class="icon">🗄️</span><span>Dropbox</span></a>
-  <a class="nav-item" data-page="files" href="#"><span class="icon">📁</span><span>Project Files</span></a>
+  <a class="nav-item" data-page="system" href="#"><span class="icon"><i class="fas fa-cog fa-fw"></i></span><span>System</span></a>
+  <a class="nav-item" data-page="dropbox" href="#"><span class="icon"><i class="fas fa-folder-open fa-fw"></i></span><span>Dropbox</span></a>
+  <a class="nav-item" data-page="files" href="#"><span class="icon"><i class="fas fa-folder fa-fw"></i></span><span>Project Files</span></a>
 </nav>
 
 <div class="main">
