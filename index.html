@@ -147,8 +147,6 @@
   <a class="nav-item" data-page="website" href="#"><span class="icon"><i class="fas fa-globe"></i></span><span>sslakd.com</span></a>
   <div class="sidebar-group">Hệ thống</div>
   <a class="nav-item" data-page="system" href="#"><span class="icon"><i class="fas fa-cog"></i></span><span>System</span></a>
-  <a class="nav-item" data-page="live" href="#"><span class="icon"><i class="fas fa-bolt"></i></span><span>Live Tasks</span><span class="badge" style="background:var(--accent);color:var(--bg)">API</span></a>
-  <a class="nav-item" data-page="files" href="#"><span class="icon"><i class="fas fa-folder"></i></span><span>Openclaw Files</span></a>
 </nav>
 
 <div class="main">
@@ -478,140 +476,47 @@ function closeTmcModal() {
 </div>
 
 <div class="page" id="page-website">
-  <div class="page-header"><h2><i class="fas fa-globe"></i> sslakd.com</h2><p>Hugo · GitHub Pages</p></div>
-  <div class="card"><h3>Thông tin</h3>
-    <div class="stat-row"><span class="stat-label">URL</span><span class="stat-value"><a href="https://sslakd.com" target="_blank">sslakd.com <i class="fas fa-external-link-alt"></i></a></span></div>
-    <div class="stat-row"><span class="stat-label">GitHub</span><span class="stat-value"><a href="https://github.com/sslakd/Jason-hut" target="_blank">github.com/sslakd/Jason-hut <i class="fas fa-external-link-alt"></i></a></span></div>
-    <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Hugo + coder theme</span></div>
-    <div class="stat-row"><span class="stat-label">Local</span><span class="stat-value">~/Desktop/jason-hut-new/</span></div>
+  <div class="page-header"><h2><i class="fas fa-globe"></i> sslakd.com</h2><p>GitHub Pages · Hugo · WordPress</p></div>
+  <div class="grid-2">
+    <div class="card"><h3>Thông tin</h3>
+      <div class="stat-row"><span class="stat-label">URL</span><span class="stat-value"><a href="https://sslakd.com" target="_blank">sslakd.com <i class="fas fa-external-link-alt"></i></a></span></div>
+      <div class="stat-row"><span class="stat-label">CNAME</span><span class="stat-value">sslakd.com (A record)</span></div>
+      <div class="stat-row"><span class="stat-label">GitHub</span><span class="stat-value"><a href="https://github.com/sslakd/Jason-hut" target="_blank">github.com/sslakd/Jason-hut <i class="fas fa-external-link-alt"></i></a></span></div>
+      <div class="stat-row"><span class="stat-label">Branch</span><span class="stat-value">main (deploy) / source (Hugo)</span></div>
+      <div class="stat-row"><span class="stat-label">Engine</span><span class="stat-value">Hugo + <a href="https://github.com/luizdepra/hugo-coder" target="_blank">hugo-coder</a></span></div>
+      <div class="stat-row"><span class="stat-label">Local</span><span class="stat-value">~/Desktop/jason-hut-new/</span></div>
+    </div>
+    <div class="card"><h3>Nội dung</h3>
+      <div class="stat-row"><span class="stat-label">Blog</span><span class="stat-value"><a href="https://sslakd.com/private/" target="_blank">sslakd.com/private/ <i class="fas fa-external-link-alt"></i></a></span></div>
+      <div class="stat-row"><span class="stat-label">Blog cũ</span><span class="stat-value">15 bài WordPress đã migrate</span></div>
+      <div class="stat-row"><span class="stat-label">CV PDF</span><span class="stat-value"><a href="https://raw.githubusercontent.com/sslakd/mission-control-board/main/docs/CV_Nguyen_Dinh_Phuoc_Son.pdf" target="_blank">2 trang <i class="fas fa-download"></i></a></span></div>
+      <div class="stat-row"><span class="stat-label">CV Full</span><span class="stat-value"><a href="https://raw.githubusercontent.com/sslakd/mission-control-board/main/docs/CV_Nguyen_Dinh_Phuoc_Son_Full.pdf" target="_blank">5 trang <i class="fas fa-download"></i></a></span></div>
+    </div>
   </div>
 </div>
 
 <div class="page" id="page-system">
-  <div class="page-header"><h2><i class="fas fa-cog"></i> System</h2></div>
+  <div class="page-header"><h2><i class="fas fa-cog"></i> System</h2><p>Mac mini ARM · OpenClaw</p></div>
   <div class="grid-2">
-    <div class="card"><h3>Kết nối</h3>
+    <div class="card"><h3><i class="fas fa-server"></i> Services</h3>
+      <div class="stat-row"><span class="stat-label">Dashboard</span><span class="stat-value">nginx :8080</span></div>
+      <div class="stat-row"><span class="stat-label">API server</span><span class="stat-value">node.js :3001</span></div>
       <div class="stat-row"><span class="stat-label">Gateway</span><span class="stat-value">127.0.0.1:18789</span></div>
-      <div class="stat-row"><span class="stat-label">Cron</span><span class="stat-value">2 jobs</span></div>
-      <div class="stat-row"><span class="stat-label">Gmail</span><span class="stat-value">sslakd@gmail.com</span></div>
-      <div class="stat-row"><span class="stat-label">Dropbox</span><span class="stat-value">rclone</span></div>
-      <div class="stat-row"><span class="stat-label">Repo</span><span class="stat-value"><a href="https://github.com/sslakd/mission-control-board" target="_blank">mc-board <i class="fas fa-external-link-alt"></i></a></span></div>
+      <div class="stat-row"><span class="stat-label">Google Drive</span><span class="stat-value">launchd (15 phút/lần)</span></div>
     </div>
-    <div class="card"><h3>Thông tin</h3>
-      <div class="stat-row"><span class="stat-label">Agent</span><span class="stat-value">Nani</span></div>
-      <div class="stat-row"><span class="stat-label">Timezone</span><span class="stat-value">Asia/Saigon</span></div>
-      <div class="stat-row"><span class="stat-label">Host</span><span class="stat-value">Mac mini ARM</span></div>
+    <div class="card"><h3><i class="fas fa-info-circle"></i> Thông tin</h3>
+      <div class="stat-row"><span class="stat-label">Host</span><span class="stat-value">Mac mini (macOS, arm64)</span></div>
+      <div class="stat-row"><span class="stat-label">Agent</span><span class="stat-value">Nani 🤖</span></div>
+      <div class="stat-row"><span class="stat-label">Timezone</span><span class="stat-value">Asia/Saigon (GMT+7)</span></div>
+      <div class="stat-row"><span class="stat-label">Workspace</span><span class="stat-value">~/.openclaw/workspace/</span></div>
     </div>
+  </div>
+  <div class="card"><h3><i class="fas fa-plug"></i> Kết nối</h3>
+    <div class="stat-row"><span class="stat-label">Gmail</span><span class="stat-value">sslakd@gmail.com</span></div>
+    <div class="stat-row"><span class="stat-label">GitHub</span><span class="stat-value"><a href="https://github.com/sslakd/mission-control-board" target="_blank">mc-board <i class="fas fa-external-link-alt"></i></a></span></div>
+    <div class="stat-row"><span class="stat-label">Cloudflare</span><span class="stat-value">dashboard.sslakd.com</span></div>
   </div>
 </div>
-
-<div class="page" id="page-live">
-  <div class="page-header"><h2><i class="fas fa-bolt" style="color:var(--accent)"></i> Live Tasks <span class="count">tương tác thực tế via API</span></h2></div>
-  <div class="card" id="live-app">
-    <div class="task-table" v-if="tasks.length">
-      <div class="task-table-header">
-        <div class="col-task">TASK</div>
-        <div class="col-priority">PRIORITY</div>
-        <div class="col-deadline">DEADLINE</div>
-        <div class="col-progress">PROGRESS</div>
-        <div class="col-status">STATUS</div>
-        <div class="col-actions"></div>
-      </div>
-      <div class="task-row" v-for="task in sortedTasks" :key="task.id" @click="openDetail(task)" :class="{'task-done': task.done}">
-        <div class="col-task">
-          <div class="task-name"><i :class="'fas ' + task.icon" :style="{color: task.iconColor}"></i> {{ task.title }}</div>
-          <div class="task-desc">{{ task.description }}</div>
-        </div>
-        <div class="col-priority"><span :class="'tag p' + task.priority">{{ ['🥇','🥈','🥉'][task.priority-1] + ' P' + task.priority }}</span></div>
-        <div class="col-deadline"><span v-if="task.deadline" :class="'deadline ' + (isUrgent(task.deadline) ? 'warn' : 'ok')">{{ task.deadline }}</span><span v-else class="deadline ok">—</span></div>
-        <div class="col-progress"><span class="progress-bar"><span class="progress-fill" :style="{width: task.progress + '%'}"></span></span><span class="progress-text">{{ task.progressText }}</span></div>
-        <div class="col-status"><span :class="'status-badge ' + (task.done ? 'done' : task.status)"><i class="fas fa-circle"></i> {{ task.done ? 'Hoàn thành' : statusLabel(task.status) }}</span></div>
-        <div class="col-actions"><div :class="'checkbox ' + (task.done ? 'checked' : '')" @click.stop="toggleTask(task)"><i class="fas fa-check" v-if="task.done"></i></div></div>
-      </div>
-    </div>
-    <div v-else style="padding:32px;text-align:center;color:var(--muted)"><i class="fas fa-spinner fa-spin"></i> Đang tải...</div>
-
-    <Transition name="fade">
-      <div class="modal-overlay" v-if="selectedTask" @click.self="selectedTask=null">
-        <div class="modal">
-          <button class="modal-close" @click="selectedTask=null">&times;</button>
-          <h2><i :class="'fas ' + selectedTask.icon" :style="{color: selectedTask.iconColor}"></i> {{ selectedTask.title }}</h2>
-          <div class="modal-section">
-            <div class="modal-meta">
-              <div class="modal-meta-item"><i class="fas fa-flag"></i> <select class="edit-inline" v-model="editForm.priority" @change="updateTask(selectedTask.id, {priority: Number(editForm.priority)})"><option :value="1">🥇 P1</option><option :value="2">🥈 P2</option><option :value="3">🥉 P3</option></select></div>
-              <div class="modal-meta-item"><i class="fas fa-calendar-alt"></i> <input class="edit-inline" v-model="editForm.deadline" placeholder="dd/mm/yyyy" @change="updateTask(selectedTask.id, {deadline: editForm.deadline})"></div>
-            </div>
-          </div>
-          <div class="modal-section">
-            <h3>📝 Mô tả</h3>
-            <textarea class="edit-inline" style="width:100%;min-height:50px;resize:vertical;margin-top:4px" v-model="editForm.description" @change="updateTask(selectedTask.id, {description: editForm.description})"></textarea>
-          </div>
-          <div class="modal-section" v-if="selectedTask.details && selectedTask.details.length">
-            <h3>✅ Checklist ({{ doneCount }}/{{ selectedTask.details.length }})</h3>
-            <div class="subtask-list">
-              <div v-for="(sub, idx) in selectedTask.details" :key="idx" :class="'subtask-item ' + (sub.done ? 'done' : '')" @click="toggleSubtask(selectedTask.id, idx)">
-                <div :class="'checkbox ' + (sub.done ? 'checked' : '')"><i class="fas fa-check" v-if="sub.done"></i></div>
-                <div class="subtask-label">{{ sub.label }}</div>
-                <div class="subtask-value" v-if="sub.value">{{ sub.value }}</div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-section" v-if="selectedTask.fileContent">
-            <h3>📄 File: {{ selectedTask.filePath.split('/').pop() }}</h3>
-            <div class="file-viewer">{{ selectedTask.fileContent }}</div>
-          </div>
-        </div>
-      </div>
-    </Transition>
-  </div>
-</div>
-
-<div class="page" id="page-files">
-  <div class="page-header"><h2><i class="fas fa-folder"></i> Desktop/Openclaw/</h2><p>Click file để xem nội dung</p></div>
-  <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-user-tie"></i> 11 CV & Jobs</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/NGUYEN_DINH_PHUOC_SON_CV.md"><i class="fas fa-file-alt"></i> CV chính</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/CV_OPTIMIZED_FOR_REMOTE_PM.md"><i class="fas fa-file-alt"></i> Remote-optimized</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/cv-and-jobs/LINKEDIN_CONTENT.md"><i class="fas fa-file-alt"></i> LinkedIn content</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="10_Remote_Jobs_PM/JOB_SEARCH_STRATEGY.md"><i class="fas fa-file-alt"></i> Job search strategy</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="11_CV_Portfolio/DEPLOY_GUIDE.md"><i class="fas fa-file-alt"></i> Deploy guide</a></div>
-    </div>
-    <div class="card"><h3><i class="fas fa-gamepad"></i> 12-14 Games</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/3QR_GDD_WITH_FACTION_CARDS.md"><i class="fas fa-file-alt"></i> 3QR GDD</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/3QR_CODENAME.md"><i class="fas fa-file-alt"></i> 3QR Codename</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="14_Game_ThreeKingdoms/SOLO_DEV_SCOPE.md"><i class="fas fa-file-alt"></i> 3QR Scope</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="12_Game_DoubleAgent/GAME_DESIGN_DOCUMENT.md"><i class="fas fa-file-alt"></i> Double Agent GDD</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="13_Game_Medieval/IRON_THRONE_GAMBIT.md"><i class="fas fa-file-alt"></i> Iron Throne GDD</a></div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-shopping-cart"></i> 05 Amazon</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="cam-nang-amazon.md"><i class="fas fa-book-open"></i> 📖 Cẩm nang Amazon</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="amazon-business-plan.md"><i class="fas fa-file-alt"></i> Business Plan</a></div>
-    </div>
-    <div class="card"><h3><i class="fas fa-book-open"></i> 08 Leadership</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="leadership-reading/lesson-01-leadership-defined.md"><i class="fas fa-file-alt"></i> Lesson 01 EN</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="leadership-reading/vn-lesson-01.md"><i class="fas fa-file-alt"></i> Lesson 01 VN</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="leadership-reading/lesson-02-power-and-politics.md"><i class="fas fa-file-alt"></i> Lesson 02 EN</a></div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card"><h3><i class="fas fa-cog"></i> 01 System & Tools</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="02_Tools/01_github_token.md"><i class="fas fa-file-alt"></i> GitHub token guide</a></div>
-      <div class="file-link"><a href="#" class="md-file" data-path="02_Tools/12_rclone_config_setup.md"><i class="fas fa-file-alt"></i> rclone config</a></div>
-    </div>
-    <div class="card"><h3><i class="fas fa-globe"></i> Jason-hut (sslakd.com)</h3>
-      <div class="file-link"><a href="#" class="md-file" data-path="../../README.md"><i class="fas fa-file-alt"></i> Repo README</a></div>
-    </div>
-  </div>
-  <div class="card" style="border-color:var(--yellow)">
-    <h3><i class="fas fa-lightbulb" style="color:var(--yellow)"></i> Click bất kỳ file .md nào để xem nội dung</h3>
-    <p style="font-size:13px;color:var(--muted);line-height:1.6">
-      File được render từ <code>~/Desktop/Openclaw/</code> qua Markdown viewer tích hợp sẵn.<br>
-      Dùng <kbd>Esc</kbd> hoặc nút <i class="fas fa-times"></i> để đóng.
-    </p>
-  </div>
-</div><!-- /page-files -->
 </div><!-- /main -->
 
 <!-- ====== MARKDOWN VIEWER MODAL ====== -->
