@@ -140,7 +140,7 @@
   <a class="nav-item" data-page="cron" href="#"><span class="icon"><i class="fas fa-clock"></i></span><span>Cron Jobs</span><span class="badge">4</span></a>
   <a class="nav-item" data-page="leadership" href="#"><span class="icon"><i class="fas fa-book-open"></i></span><span>Leadership</span><span class="badge">8</span></a>
   <div class="sidebar-group">Kinh doanh</div>
-  <a class="nav-item" data-page="amazon" href="#"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>Amazon</span><span class="badge">GD0</span></a>
+  <a class="nav-item" data-page="amazon" href="#"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="#ff9900"><path d="M21.7 17.3c-.7.5-1.8.8-2.7.8-.8 0-1.5-.2-2.1-.5L16 19c.6.3 1.3.5 2 .5 1.2 0 2.5-.3 3.4-1 .3-.2.1-.6-.2-.5l.5-.5M12.4 4C9 4 4.9 5.5 4.9 10.2c0 3.2 2 4.8 3.5 5.8.4.3.5.1.5-.2l-.2-1c-.1-.3-.1-.4.3-.6C6.8 13.3 7 10.9 8.3 9.6c.5-.5 1.1-.9 1.8-1.2.7-.3 1.4-.4 2-.6.9-.2 1.4-.1 1.8.1.3.2.4.5.4.9 0 .5-.1 1.1-.2 1.7v.1c-.1.4-1.1 4.5-1.1 4.5s-.1.5.3.7c.3.2.6.1.8-.1l3.9-4.5c.4-.5.7-1 .9-1.5.2-.6.3-1.2.3-1.8 0-.5-.1-1-.3-1.5-.1-.4-.4-.8-.6-1.1-.3-.3-.6-.5-1-.6C15.5 4.2 14 4 12.4 4zM12 5.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg></span><span>Amazon</span><span class="badge">GD0</span></a>
   <div class="sidebar-group">Dự án chính</div>
   <a class="nav-item" data-page="games" href="#"><span class="icon"><i class="fas fa-gamepad"></i></span><span>Game Dev</span><span class="badge">4</span></a>
   <a class="nav-item" data-page="cvjobs" href="#"><span class="icon"><i class="fas fa-file-alt"></i></span><span>CV & Jobs</span></a>
@@ -161,12 +161,11 @@
       <div class="cron-item"><div class="cron-time">6:10</div><div class="cron-info"><div class="cron-title">VN Leadership → Email</div><div class="cron-desc">dangtoquynhpk@gmail.com</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
     </div>
     <div class="card"><h3><i class="fas fa-bullseye"></i> Dự án</h3>
-      <div class="stat-row"><span class="stat-label">🥇 KDP Sprint</span><span class="stat-value"><span class="tag p1">17-30/05</span></span></div>
-      <div class="stat-row"><span class="stat-label">🥇 Amazon FBA</span><span class="stat-value"><span class="tag p1">GD 0</span></span></div>
-      <div class="stat-row"><span class="stat-label">🥈 CV Remote</span><span class="stat-value"><span class="tag p2">Toptal screening</span></span></div>
-      <div class="stat-row"><span class="stat-label">🥉 Game Dev</span><span class="stat-value"><span class="tag p3">Tạm dừng</span></span></div>
-      <div class="stat-row"><span class="stat-label">Leadership</span><span class="stat-value"><span class="tag green">Active</span></span></div>
-      <div class="stat-row"><span class="stat-label">YouTube Upload</span><span class="stat-value"><span class="tag green">Running</span></span></div>
+      <div class="stat-row" style="cursor:pointer" onclick="switchToPage('amazon')"><span class="stat-label">🥇 KDP Sprint</span><span class="stat-value"><span class="tag p1">17-30/05</span></span></div>
+      <div class="stat-row" style="cursor:pointer" onclick="switchToPage('amazon')"><span class="stat-label">🥇 Amazon FBA</span><span class="stat-value"><span class="tag p1">GD 0</span></span></div>
+      <div class="stat-row" style="cursor:pointer" onclick="switchToPage('cvjobs')"><span class="stat-label">🥈 CV Remote</span><span class="stat-value"><span class="tag p2">Toptal screening</span></span></div>
+      <div class="stat-row" style="cursor:pointer" onclick="switchToPage('games')"><span class="stat-label">🥉 Game Dev</span><span class="stat-value"><span class="tag p3">Tạm dừng</span></span></div>
+      <div class="stat-row" style="cursor:pointer" onclick="switchToPage('leadership')"><span class="stat-label">Leadership</span><span class="stat-value"><span class="tag green">Active</span></span></div>
     </div>
   </div>
   <div class="card"><h3>📋 ALL TASKS <span class="count">ClickUp Style</span></h3>
@@ -404,7 +403,7 @@ function closeTmcModal() {
 </div>
 
 <div class="page" id="page-amazon">
-  <div class="page-header"><h2><i class="fas fa-shopping-cart"></i> Amazon FBA — Kinh doanh</h2><p>Mục tiêu: $5,000/tháng lợi nhuận cuối 2026</p></div>
+  <div class="page-header"><h2><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff9900" style="vertical-align:-4px"><path d="M21.7 17.3c-.7.5-1.8.8-2.7.8-.8 0-1.5-.2-2.1-.5L16 19c.6.3 1.3.5 2 .5 1.2 0 2.5-.3 3.4-1 .3-.2.1-.6-.2-.5l.5-.5M12.4 4C9 4 4.9 5.5 4.9 10.2c0 3.2 2 4.8 3.5 5.8.4.3.5.1.5-.2l-.2-1c-.1-.3-.1-.4.3-.6C6.8 13.3 7 10.9 8.3 9.6c.5-.5 1.1-.9 1.8-1.2.7-.3 1.4-.4 2-.6.9-.2 1.4-.1 1.8.1.3.2.4.5.4.9 0 .5-.1 1.1-.2 1.7v.1c-.1.4-1.1 4.5-1.1 4.5s-.1.5.3.7c.3.2.6.1.8-.1l3.9-4.5c.4-.5.7-1 .9-1.5.2-.6.3-1.2.3-1.8 0-.5-.1-1-.3-1.5-.1-.4-.4-.8-.6-1.1-.3-.3-.6-.5-1-.6C15.5 4.2 14 4 12.4 4zM12 5.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg> Amazon FBA — Kinh doanh</h2><p>Mục tiêu: $5,000/tháng lợi nhuận cuối 2026</p></div>
   <div class="grid-2">
     <div class="card"><h3><i class="fas fa-bullseye"></i> Tiến độ <span class="count">Giai đoạn 0</span></h3>
       <div class="stat-row"><span class="stat-label">Vốn dự kiến</span><span class="stat-value">$4,500-7,000</span></div>
@@ -422,13 +421,23 @@ function closeTmcModal() {
       <div class="stat-row"><span class="stat-label">GD4: Peak ($5K)</span><span class="stat-value"><span class="tag yellow">15/11-Cuối 12</span></span></div>
     </div>
   </div>
-  <div class="card"><h3><i class="fas fa-check-circle"></i> Checklist Tuần 1 (15-22/05)</h3>
+  <div class="grid-2">
+    <div class="card"><h3><i class="fas fa-check-circle"></i> Checklist Tuần 1 (15-22/05)</h3>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>📖 Đọc xong cẩm nang (3 trang/tối)</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>💳 Tạo tài khoản Payoneer / PingPong</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>📋 Chuẩn bị hồ sơ: CCCD, sao kê NH 90 ngày, hóa đơn</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>🔍 Chọn 3 ngành hàng quan tâm</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>🛠 Đăng ký Helium 10 free trial</span></div>
     <div class="todo-item"><i class="fas fa-hourglass-half" style="color:var(--yellow)"></i><span>🎥 Xem 3 video Amazon Seller University</span></div>
+  </div>
+  </div>
+  <div class="card"><h3><i class="fas fa-book-open" style="color:var(--accent)"></i> KDP Sprint — Viết sách</h3>
+    <div class="stat-row"><span class="stat-label">Sách</span><span class="stat-value">How to Manage a UI/UX Design Project</span></div>
+    <div class="stat-row"><span class="stat-label">Tiến độ</span><span class="stat-value">Sprint 17-30/05</span></div>
+    <div class="stat-row"><span class="stat-label">Số chương</span><span class="stat-value">15 chương, ~180 trang</span></div>
+    <div class="stat-row"><span class="stat-label">Đã viết</span><span class="stat-value">1/15 (7%)</span></div>
+    <div class="stat-row"><span class="stat-label">Lịch viết</span><span class="stat-value">6:30 sáng mỗi ngày</span></div>
+    <div class="stat-row"><span class="stat-label">Status</span><span class="stat-value"><span class="tag green">Active</span></span></div>
   </div>
   <div class="card"><h3><i class="fas fa-file-alt"></i> Tài liệu</h3>
     <div class="file-link"><a href="https://raw.githubusercontent.com/sslakd/mission-control-board/main/docs/cam-nang-amazon.md" target="_blank"><i class="fas fa-book-open" style="color:var(--accent)"></i> 📖 Đọc Cẩm Nang Amazon (Markdown)</a></div>
@@ -642,6 +651,12 @@ function closeTmcModal() {
     const m={'1':'dashboard','2':'backlog','3':'cron','4':'leadership','5':'games','6':'cvjobs','7':'website','8':'system','9':'backlog'};
     if(e.key in m){const el=document.querySelector('.nav-item[data-page="'+m[e.key]+'"]');if(el)el.click()}
   });
+
+  // === Programmatic page switching (from Dự án card click) ===
+  function switchToPage(pageId) {
+    const navItem = document.querySelector('.nav-item[data-page="'+pageId+'"]');
+    if(navItem) navItem.click();
+  }
 
   // === Markdown Viewer ===
   // GitHub raw base URL (file từ mission-control-board repo/docs/)
