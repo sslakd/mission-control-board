@@ -314,7 +314,7 @@ function openTaskMobile(idx) {
   const t = TMC_DATA[idx];
   if (!t) return;
   document.getElementById('tmcModalName').textContent = t.name;
-  document.getElementById('tmcModalTitle').innerHTML = '<i class="fas fa-tasks" style="color:var(--accent)"></i> ' + t.name;
+  document.getElementById('tmcModalTitle').innerHTML = '<i class="fas fa-tasks" style="color:var(--accent)"></i> ';
   
   const prioIcon = t.prio === 'P1' ? '🥇' : t.prio === 'P2' ? '🥈' : '🥉';
   const subtaskHtml = t.subtasks.map(s =>
