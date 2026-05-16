@@ -156,6 +156,16 @@
 .tmc-label{font-size:12px;color:var(--muted);min-width:68px;flex-shrink:0}
 .tmc-value{font-size:14px;color:var(--text);display:flex;align-items:center;flex:1}
 .tmc-subtask{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:13px;color:var(--text2)}
+.tmc-edit{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px;font-size:13px;font-family:inherit}
+.tmc-edit:focus{outline:none;border-color:var(--accent)}
+.tmc-edit select{width:100%}
+.tmc-edit input[type=range]{-webkit-appearance:none;height:6px;background:var(--card2);border-radius:3px;outline:none}
+.tmc-edit input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer}
+.tmc-edit textarea{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:6px;font-size:13px;font-family:inherit;line-height:1.5}
+.tmc-edit textarea:focus{outline:none;border-color:var(--accent)}
+.tmc-btn{background:var(--accent);color:#0f172a;border:none;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .15s}
+.tmc-btn:hover{opacity:.85}
+.tmc-btn-secondary{background:var(--card2);color:var(--text)}
 </style>
 <!-- MC Board v2.0-202605161515 -->
 </head>
@@ -208,88 +218,12 @@
       <div class="col-progress" data-label="Progress">PROGRESS</div>
       <div class="col-status" data-label="Status">STATUS</div>
     </div>
-
-    <div class="task-table-row p1-row" onclick="openTaskMobile(0)">
-      <div class="col-task">
-        <div class="task-name"><i class="fas fa-book-open" style="color:var(--accent)"></i> Viết sách KDP</div>
-        <div class="task-desc">How to Manage a UI/UX Design Project — 15 chương, ~180 trang. File tại 05_Amazon/KDP/</div>
-      </div>
-      <div class="col-priority" data-label="Priority"><span class="tag p1">🥇 P1</span></div>
-      <div class="col-deadline" data-label="Deadline"><span class="deadline warn">30/05</span></div>
-      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:7%"></div></div><span class="progress-text">7% (1/15 chương)</span></div>
-      <div class="col-status" data-label="Status"><span class="status-badge in-progress"><i class="fas fa-circle"></i> Đang viết</span></div>
-    </div>
-
-    <div class="task-table-row p1-row" onclick="openTaskMobile(1)">
-      <div class="col-task">
-        <div class="task-name"><i class="fab fa-amazon" style="color:#ff9900"></i> Amazon FBA</div>
-        <div class="task-desc">Học cẩm nang → Chọn ngành hàng → Hồ sơ Seller → PingPong ✅ → W-8BEN (30%→0%)</div>
-      </div>
-      <div class="col-priority" data-label="Priority"><span class="tag p1">🥇 P1</span></div>
-      <div class="col-deadline" data-label="Deadline"><span class="deadline warn">Tuần 1: 22/05</span></div>
-      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div><span class="progress-text">20% (PingPong ✅)</span></div>
-      <div class="col-status" data-label="Status"><span class="status-badge in-progress"><i class="fas fa-circle"></i> Học & CB</span></div>
-    </div>
-
-    <div class="task-table-row p2-row" onclick="openTaskMobile(2)">
-      <div class="col-task">
-        <div class="task-name"><i class="fas fa-briefcase" style="color:var(--green)"></i> CV Remote PM</div>
-        <div class="task-desc">Toptal screening · Đã apply Vantage Search · Còn LinkedIn, TopDev, ITViec, Upwork</div>
-      </div>
-      <div class="col-priority" data-label="Priority"><span class="tag p2">🥈 P2</span></div>
-      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">—</span></div>
-      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div><span class="progress-text">15%</span></div>
-      <div class="col-status" data-label="Status"><span class="status-badge pending"><i class="fas fa-circle"></i> Chờ apply</span></div>
-    </div>
-
-    <div class="task-table-row p3-row" onclick="openTaskMobile(3)">
-      <div class="col-task">
-        <div class="task-name"><i class="fas fa-gamepad" style="color:var(--muted)"></i> 3QR Game (tạm dừng)</div>
-        <div class="task-desc">Godot 4 · Xiangqi engine ~95% · Còn assets, card system, roguelite progression</div>
-      </div>
-      <div class="col-priority" data-label="Priority"><span class="tag p3">🥉 P3</span></div>
-      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">—</span></div>
-      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div><span class="progress-text">~95% (engine)</span></div>
-      <div class="col-status" data-label="Status"><span class="status-badge paused"><i class="fas fa-pause-circle"></i> Tạm dừng</span></div>
-    </div>
-
-    <div class="task-table-row p3-row" onclick="openTaskMobile(4)">
-      <div class="col-task">
-        <div class="task-name"><i class="fas fa-video" style="color:var(--muted)"></i> Google Photos → YouTube</div>
-        <div class="task-desc">Upload tự động 7:00 AM · 147 videos · 6/41 ZIPs · Còn ~5-6 ngày</div>
-      </div>
-      <div class="col-priority" data-label="Priority"><span class="tag p3">🥉 P3</span></div>
-      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">Daily auto</span></div>
-      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div><span class="progress-text">15% (6/41 ZIPs)</span></div>
-      <div class="col-status" data-label="Status"><span class="status-badge auto"><i class="fas fa-robot"></i> Tự động</span></div>
-    </div>
+    <div id="taskTableBody"></div>
   </div>
-
-  <!-- ====== MOBILE TASK CARDS (hidden on desktop) ====== -->
-  <div class="task-mobile-cards">
-    <div class="tmc-row" data-task="kdp" onclick="openTaskMobile(0)">
-      <div class="tmc-left"><span class="tmc-priority p1">🥇</span><span class="tmc-title">Viết sách KDP</span></div>
-      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:7%"></div></div><span class="tmc-pct">7%</span></div>
-    </div>
-    <div class="tmc-row" data-task="amazon" onclick="openTaskMobile(1)">
-      <div class="tmc-left"><span class="tmc-priority p1">🥇</span><span class="tmc-title">Amazon FBA</span></div>
-      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:20%"></div></div><span class="tmc-pct">20%</span></div>
-    </div>
-    <div class="tmc-row" data-task="cv" onclick="openTaskMobile(2)">
-      <div class="tmc-left"><span class="tmc-priority p2">🥈</span><span class="tmc-title">CV Remote PM</span></div>
-      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:15%"></div></div><span class="tmc-pct">15%</span></div>
-    </div>
-    <div class="tmc-row" data-task="game" onclick="openTaskMobile(3)">
-      <div class="tmc-left"><span class="tmc-priority p3">🥉</span><span class="tmc-title">3QR Game</span></div>
-      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:95%"></div></div><span class="tmc-pct">95%</span></div>
-    </div>
-    <div class="tmc-row" data-task="youtube" onclick="openTaskMobile(4)">
-      <div class="tmc-left"><span class="tmc-priority p3">🥉</span><span class="tmc-title">Google Photos → YouTube</span></div>
-      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:15%"></div></div><span class="tmc-pct">15%</span></div>
-    </div>
-  </div>
+</div><!-- /page-dashboard -->
 </div>
-</div>
+<!-- ====== MOBILE TASK CARDS (hidden on desktop) ====== -->
+<div class="task-mobile-cards" id="mobileTaskCards"></div>
 
 <!-- ====== MOBILE TASK MODAL ====== -->
 <div class="tmc-modal-overlay" id="tmcModal" style="display:none" onclick="if(event.target===this)closeTmcModal()">
@@ -304,36 +238,115 @@
 </div>
 
 <script>
-const TMC_DATA = [
-  { name:"Viết sách KDP", prio:"P1", p:7, deadline:"30/05", status:"Đang viết", desc:"How to Manage a UI/UX Design Project — 15 chương, ~180 trang.", subtasks:["Outline 15 chương","Viết Preface","Chương 1 (đang viết)"] },
-  { name:"Amazon FBA", prio:"P1", p:20, deadline:"22/05", status:"Học & CB", desc:"Học cẩm nang → Chọn ngành → Hồ sơ Seller → PingPong ✅ → W-8BEN", subtasks:["Đọc cẩm nang","Tạo PingPong","Chọn ngành hàng"] },
-  { name:"CV Remote PM", prio:"P2", p:15, deadline:"—", status:"Chờ apply", desc:"Toptal screening · Vantage Search · LinkedIn · TopDev · Upwork", subtasks:["Toptal account","Apply Vantage Search","Tối ưu LinkedIn"] },
-  { name:"3QR Game", prio:"P3", p:95, deadline:"—", status:"Tạm dừng", desc:"Godot 4 · Xiangqi engine ~95% · Còn assets, card system", subtasks:["Xiangqi engine","Piece movement","Check/checkmate"] },
-  { name:"Google Photos → YouTube", prio:"P3", p:15, deadline:"Daily", status:"Tự động", desc:"147 videos · 6/41 ZIPs · Upload 7:00 AM daily", subtasks:["Script upload","Schedule cron","6/41 ZIPs done"] }
-];
+const STORAGE_KEY = 'goc_toi_tasks';
+
+// Load from localStorage or use defaults
+function loadTaskData() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try { return JSON.parse(saved); } catch(e) {}
+  }
+  return [
+    { name:"Viết sách KDP", prio:"P1", p:7, deadline:"30/05", status:"Đang viết", desc:"How to Manage a UI/UX Design Project — 15 chương, ~180 trang.", subtasks:["Outline 15 chương","Viết Preface","Chương 1 (đang viết)"] },
+    { name:"Amazon FBA", prio:"P1", p:20, deadline:"22/05", status:"Học & CB", desc:"Học cẩm nang → Chọn ngành → Hồ sơ Seller → PingPong ✅ → W-8BEN", subtasks:["Đọc cẩm nang","Tạo PingPong","Chọn ngành hàng"] },
+    { name:"CV Remote PM", prio:"P2", p:15, deadline:"—", status:"Chờ apply", desc:"Toptal screening · Vantage Search · LinkedIn · TopDev · Upwork", subtasks:["Toptal account","Apply Vantage Search","Tối ưu LinkedIn"] },
+    { name:"3QR Game", prio:"P3", p:95, deadline:"—", status:"Tạm dừng", desc:"Godot 4 · Xiangqi engine ~95% · Còn assets, card system", subtasks:["Xiangqi engine","Piece movement","Check/checkmate"] },
+    { name:"Google Photos → YouTube", prio:"P3", p:15, deadline:"Daily", status:"Tự động", desc:"147 videos · 6/41 ZIPs · Upload 7:00 AM daily", subtasks:["Script upload","Schedule cron","6/41 ZIPs done"] }
+  ];
+}
+
+let TMC_DATA = loadTaskData();
+let _activeIdx = -1;
+
+function saveTaskData() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
+}
+
+function renderAllTasks() {
+  // Desktop table
+  const table = document.getElementById('taskTableBody');
+  if (!table) return;
+  
+  const prioLabel = {P1:'🥇',P2:'🥈',P3:'🥉'};
+  const statIcon = {'Đang viết':'in-progress','Học & CB':'in-progress','Chờ apply':'pending','Tạm dừng':'paused','Tự động':'auto'};
+  
+  table.innerHTML = TMC_DATA.map((t,i) => {
+    const pClass = t.prio === 'P1' ? 'p1-row' : t.prio === 'P2' ? 'p2-row' : 'p3-row';
+    const sClass = statIcon[t.status] || 'pending';
+    const dlClass = t.deadline && t.deadline !== '—' && t.deadline !== 'Daily' && t.deadline !== 'Daily auto' ? 'warn' : 'ok';
+    const icons = ['fa-book-open','fa-amazon','fa-briefcase','fa-gamepad','fa-video'];
+    const icolors = ['var(--accent)','#ff9900','var(--green)','var(--muted)','var(--muted)'];
+    return `<div class="task-table-row ${pClass}" onclick="openTaskMobile(${i})">
+      <div class="col-task">
+        <div class="task-name"><i class="${icons[i] === 'fa-amazon' ? 'fab' : 'fas'} ${icons[i]}" style="color:${icolors[i]}"></i> ${t.name}</div>
+        <div class="task-desc">${t.desc}</div>
+      </div>
+      <div class="col-priority"><span class="tag ${t.prio.toLowerCase()}">${prioLabel[t.prio]} ${t.prio}</span></div>
+      <div class="col-deadline"><span class="deadline ${dlClass}">${t.deadline}</span></div>
+      <div class="col-progress"><div class="progress-bar"><div class="progress-fill" style="width:${t.p}%"></div></div><span class="progress-text">${t.p}%</span></div>
+      <div class="col-status"><span class="status-badge ${sClass}"><i class="fas fa-circle"></i> ${t.status}</span></div>
+    </div>`;
+  }).join('');
+  
+  // Mobile cards
+  const mcard = document.querySelector('.task-mobile-cards');
+  if (!mcard) return;
+  mcard.innerHTML = TMC_DATA.map((t,i) => {
+    const pIcon = prioLabel[t.prio];
+    return `<div class="tmc-row" onclick="openTaskMobile(${i})">
+      <div class="tmc-left"><span class="tmc-priority ${t.prio.toLowerCase()}">${pIcon}</span><span class="tmc-title">${t.name}</span></div>
+      <div class="tmc-right"><div class="tmc-bar"><div class="tmc-fill" style="width:${t.p}%"></div></div><span class="tmc-pct">${t.p}%</span></div>
+    </div>`;
+  }).join('');
+}
 
 function openTaskMobile(idx) {
   const t = TMC_DATA[idx];
   if (!t) return;
+  _activeIdx = idx;
   document.getElementById('tmcModalName').textContent = t.name;
   
   const prioIcon = t.prio === 'P1' ? '🥇' : t.prio === 'P2' ? '🥈' : '🥉';
-  const subtaskHtml = t.subtasks.map(s =>
+  const subtaskHtml = t.subtasks.map((s,si) =>
     `<div class="tmc-subtask"><i class="far fa-circle" style="color:var(--muted);width:16px"></i><span>${s}</span></div>`
   ).join('');
   
   document.getElementById('tmcModalBody').innerHTML = `
-    <div class="tmc-field"><span class="tmc-label">Priority</span><span class="tmc-value">${prioIcon} ${t.prio}</span></div>
-    <div class="tmc-field"><span class="tmc-label">Deadline</span><span class="tmc-value">${t.deadline}</span></div>
-    <div class="tmc-field"><span class="tmc-label">Status</span><span class="tmc-value" style="color:var(--green)">${t.status}</span></div>
-    <div class="tmc-field"><span class="tmc-label">Progress</span><span class="tmc-value"><div class="tmc-bar" style="flex:1;max-width:150px"><div class="tmc-fill" style="width:${t.p}%"></div></div><span style="font-size:12px;margin-left:8px">${t.p}%</span></span></div>
+    <div class="tmc-field"><span class="tmc-label">Priority</span>
+      <select class="tmc-edit" id="editPrio">
+        <option value="P1" ${t.prio==='P1'?'selected':''}>🥇 P1</option>
+        <option value="P2" ${t.prio==='P2'?'selected':''}>🥈 P2</option>
+        <option value="P3" ${t.prio==='P3'?'selected':''}>🥉 P3</option>
+      </select>
+    </div>
+    <div class="tmc-field"><span class="tmc-label">Deadline</span>
+      <input class="tmc-edit" id="editDeadline" value="${t.deadline}" style="width:120px">
+    </div>
+    <div class="tmc-field"><span class="tmc-label">Status</span>
+      <select class="tmc-edit" id="editStatus">
+        <option value="Đang viết" ${t.status==='Đang viết'?'selected':''}>Đang viết</option>
+        <option value="Học & CB" ${t.status==='Học & CB'?'selected':''}>Học & CB</option>
+        <option value="Chờ apply" ${t.status==='Chờ apply'?'selected':''}>Chờ apply</option>
+        <option value="Tạm dừng" ${t.status==='Tạm dừng'?'selected':''}>Tạm dừng</option>
+        <option value="Tự động" ${t.status==='Tự động'?'selected':''}>Tự động</option>
+        <option value="Xong" ${t.status==='Xong'?'selected':''}>Xong ✅</option>
+      </select>
+    </div>
+    <div class="tmc-field"><span class="tmc-label">Progress</span>
+      <input class="tmc-edit" id="editProgress" type="range" min="0" max="100" value="${t.p}" style="flex:1" oninput="document.getElementById('pVal').textContent=this.value+'%'">
+      <span id="pVal" style="font-size:12px;color:var(--accent);min-width:40px;text-align:right">${t.p}%</span>
+    </div>
     <div class="tmc-field" style="flex-direction:column;align-items:stretch;gap:6px">
       <span class="tmc-label">📝 Mô tả</span>
-      <span style="font-size:13px;color:var(--text2);line-height:1.5">${t.desc}</span>
+      <textarea class="tmc-edit" id="editDesc" rows="3" style="width:100%;resize:vertical;font-size:13px;line-height:1.5">${t.desc}</textarea>
     </div>
     <div class="tmc-field" style="flex-direction:column;align-items:stretch;gap:4px">
       <span class="tmc-label">📋 Subtasks</span>
       ${subtaskHtml}
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+      <button class="tmc-btn" onclick="saveTask()"><i class="fas fa-check"></i> Lưu</button>
+      <button class="tmc-btn tmc-btn-secondary" onclick="closeTmcModal()">Hủy</button>
     </div>
   `;
   document.getElementById('tmcModal').style.display = 'flex';
@@ -341,6 +354,19 @@ function openTaskMobile(idx) {
 
 function closeTmcModal() {
   document.getElementById('tmcModal').style.display = 'none';
+}
+
+function saveTask() {
+  const t = TMC_DATA[_activeIdx];
+  if (!t) return;
+  t.prio = document.getElementById('editPrio').value;
+  t.deadline = document.getElementById('editDeadline').value.trim() || '—';
+  t.status = document.getElementById('editStatus').value;
+  t.p = parseInt(document.getElementById('editProgress').value) || 0;
+  t.desc = document.getElementById('editDesc').value.trim();
+  saveTaskData();
+  renderAllTasks();
+  closeTmcModal();
 }
 </script>
 
