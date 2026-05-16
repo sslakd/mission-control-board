@@ -117,7 +117,18 @@ check "Markdown viewer modal exists" "$([ $? -eq 0 ] && echo 'ok' || echo 'fail'
 
 # ---------- 7. API server test ----------
 echo ""
-echo "--- 7. API server ---"
+echo "
+--- 9. HTML structure ---
+  HTML_DIV_OPEN=$(grep -o '<div' index.html | wc -l)
+  HTML_DIV_CLOSE=$(grep -o '</div' index.html | wc -l)
+  if [ "$HTML_DIV_OPEN" = "$HTML_DIV_CLOSE" ]; then
+    echo "  ✅ HTML divs: $HTML_DIV_OPEN open / $HTML_DIV_CLOSE close (balanced)"
+  else
+    echo "  ❌ HTML divs: $HTML_DIV_OPEN open / $HTML_DIV_CLOSE close (unbalanced!)"
+    FAILED=1
+  fi
+
+--- 7. API server ---"
 if command -v curl &>/dev/null; then
     API_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 http://localhost:$SERVER_PORT/api/tasks 2>/dev/null)
     if [ "$API_STATUS" = "200" ]; then
