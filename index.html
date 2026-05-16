@@ -96,8 +96,9 @@
     .task-mobile-cards{display:block}
   }
 
-/* ====== Mobile Task Cards (hidden on desktop) ====== */
-.task-mobile-cards{display:none}
+@media(min-width:769px){
+  .task-mobile-cards{display:none}
+}
 .tmc-row{display:flex;align-items:center;justify-content:space-between;padding:10px 6px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
 .tmc-row:last-child{border-bottom:none}
 .tmc-row:hover{background:var(--hover)}
