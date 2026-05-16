@@ -1,0 +1,103 @@
+{
+  "tasks": [
+    {
+      "id": "kdp-book",
+      "title": "Viết sách KDP",
+      "description": "How to Manage a UI/UX Design Project — 15 chương, ~180 trang",
+      "icon": "fa-book-open",
+      "iconColor": "var(--accent)",
+      "priority": 1,
+      "deadline": "30/05/2026",
+      "progress": 7,
+      "progressText": "7% (1/15 chương)",
+      "status": "in-progress",
+      "done": false,
+      "tags": ["KDP", "writing"],
+      "filePath": "/Users/sonnguyen/.openclaw/workspace/projects/kdp-outline.md",
+      "details": [
+        {"label": "Chương 1", "value": "Đã viết ✍️", "done": true},
+        {"label": "Chương 2-15", "value": "Chưa viết", "done": false}
+      ]
+    },
+    {
+      "id": "amazon-fba",
+      "title": "Amazon FBA",
+      "description": "Học cẩm nang → Chọn ngành hàng → Hồ sơ Seller",
+      "icon": "fa-box",
+      "iconColor": "var(--yellow)",
+      "priority": 1,
+      "deadline": "22/05/2026",
+      "progress": 20,
+      "progressText": "20% (PingPong ✅)",
+      "status": "in-progress",
+      "done": false,
+      "tags": ["Amazon", "FBA"],
+      "filePath": "/Users/sonnguyen/.openclaw/workspace/projects/amazon-business-plan.md",
+      "details": [
+        {"label": "PingPong Account", "value": "Đã tạo ✅", "done": true},
+        {"label": "W-8BEN", "value": "Chưa update", "done": false},
+        {"label": "Chọn ngành hàng", "value": "", "done": false},
+        {"label": "Đọc cẩm nang", "value": "", "done": false}
+      ]
+    },
+    {
+      "id": "cv-remote",
+      "title": "CV Remote PM",
+      "description": "Toptal screening · Đã apply Vantage Search · Còn LinkedIn, TopDev, ITViec, Upwork",
+      "icon": "fa-briefcase",
+      "iconColor": "var(--green)",
+      "priority": 2,
+      "deadline": "",
+      "progress": 15,
+      "progressText": "15%",
+      "status": "pending",
+      "done": false,
+      "tags": ["career", "job"],
+      "filePath": "",
+      "details": [
+        {"label": "Toptal Screening", "value": "Đang trong phase", "done": false},
+        {"label": "Vantage Search", "value": "Đã apply (11/05)", "done": true},
+        {"label": "LinkedIn", "value": "Chưa apply thêm", "done": false}
+      ]
+    },
+    {
+      "id": "game-3qr",
+      "title": "3QR Game",
+      "description": "Godot 4 · Xiangqi engine ~95%",
+      "icon": "fa-gamepad",
+      "iconColor": "var(--muted)",
+      "priority": 3,
+      "deadline": "",
+      "progress": 95,
+      "progressText": "~95% (engine)",
+      "status": "paused",
+      "done": false,
+      "tags": ["game", "godot"],
+      "filePath": "",
+      "details": [
+        {"label": "Xiangqi engine", "value": "~95%", "done": false},
+        {"label": "Assets", "value": "Chưa làm", "done": false},
+        {"label": "Card system", "value": "Chưa làm", "done": false}
+      ]
+    },
+    {
+      "id": "youtube-upload",
+      "title": "Google Photos → YouTube",
+      "description": "Upload tự động 7:00 AM · 147 videos · 6/41 ZIPs",
+      "icon": "fa-video",
+      "iconColor": "var(--muted)",
+      "priority": 3,
+      "deadline": "",
+      "progress": 15,
+      "progressText": "15% (6/41 ZIPs)",
+      "status": "auto",
+      "done": false,
+      "tags": ["youtube", "auto"],
+      "filePath": "",
+      "details": [
+        {"label": "ZIPs uploaded", "value": "6/41", "done": false}
+      ]
+    }
+  ],
+  "logs": []
+}
