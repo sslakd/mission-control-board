@@ -93,65 +93,6 @@
     .grid-2,.grid-3{grid-template-columns:1fr}
     .md-viewer{padding:16px}
   }
-
-/* ====== Interactive Project List (new) ====== */
-.proj-list{display:flex;flex-direction:column}
-.proj-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;border-radius:6px;margin:0 -8px;padding:8px}
-.proj-row:hover{background:var(--hover)}
-.proj-row:last-child{border-bottom:none}
-.proj-left{display:flex;align-items:center;gap:8px}
-.proj-medal{width:24px;text-align:center;font-size:15px}
-.proj-title{font-size:14px;color:var(--text)}
-.proj-right{display:flex;align-items:center;gap:8px}
-.proj-date{font-size:12px;color:var(--muted)}
-.proj-badge{font-size:11px;padding:2px 10px;border-radius:12px;font-weight:600}
-.proj-badge.active{background:rgba(34,197,94,.15);color:#22c55e}
-.proj-badge.running{background:rgba(34,197,94,.15);color:#22c55e}
-
-/* ====== Task Compact List ====== */
-.task-compact{display:flex;flex-direction:column}
-.task-compact-row{display:flex;align-items:center;justify-content:space-between;padding:10px 8px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;border-radius:6px;margin:0 -8px}
-.task-compact-row:hover{background:var(--hover)}
-.task-compact-row:last-child{border-bottom:none}
-.tcr-left{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
-.tcr-priority{font-size:16px;width:24px;text-align:center}
-.tcr-info{display:flex;flex-direction:column;gap:2px;min-width:0}
-.tcr-name{font-size:14px;font-weight:600;color:var(--text)}
-.tcr-desc{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tcr-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.tcr-bar{width:80px;height:6px;background:var(--card2);border-radius:4px;overflow:hidden}
-.tcr-fill{height:100%;background:var(--accent);border-radius:4px;transition:width .3s}
-.tcr-pct{font-size:11px;color:var(--muted);width:30px;text-align:right}
-
-/* ====== Project/Task Modal ====== */
-.proj-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:1000;display:none;align-items:center;justify-content:center}
-.proj-modal{background:var(--card);border-radius:16px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
-.proj-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.proj-modal-header h3{font-size:18px;display:flex;align-items:center;gap:8px}
-.proj-modal-close{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer}
-.proj-modal-close:hover{color:var(--text)}
-.proj-modal-body{display:flex;flex-direction:column;gap:0}
-.proj-detail-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);gap:12px}
-.proj-detail-row:last-child{border-bottom:none}
-.proj-detail-label{font-size:13px;color:var(--muted);min-width:80px;flex-shrink:0}
-.proj-detail-val{font-size:14px;color:var(--text)}
-
-/* ====== Subtask items in modal ====== */
-.subtask-item{padding:4px 0;cursor:pointer;transition:background .15s;border-radius:4px;display:flex;align-items:center;gap:6px}
-.subtask-item:hover{background:var(--hover);padding:4px 6px;margin:0 -6px}
-.subtask-item.done .subtask-label{text-decoration:line-through;opacity:.6}
-.subtask-label{font-size:13px}
-
-/* Compact edits in modal */
-.edit-inline{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px;font-size:13px}
-.edit-inline:focus{outline:none;border-color:var(--accent)}
-select.edit-inline{width:auto;min-width:140px}
-input[type=range].edit-inline{background:transparent;border:none;padding:0}
-
-@media(max-width:768px){
-  .tcr-bar{width:60px}
-  .proj-modal{padding:16px;max-width:100%;border-radius:0;height:100%;max-height:100%}
-}
 </style>
 <!-- MC Board v2.0-202605161515 -->
 </head>
@@ -189,240 +130,81 @@ input[type=range].edit-inline{background:transparent;border:none;padding:0}
       <div class="cron-item"><div class="cron-time">6:00</div><div class="cron-info"><div class="cron-title">EN Leadership → Telegram</div><div class="cron-desc">Jason</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
       <div class="cron-item"><div class="cron-time">6:10</div><div class="cron-info"><div class="cron-title">VN Leadership → Email</div><div class="cron-desc">dangtoquynhpk@gmail.com</div></div><span class="cron-status active"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></div>
     </div>
-    <div class="card" id="projCard"><h3><i class="fas fa-bullseye"></i> Dự án</h3>
-      <div class="proj-list" id="projList">
-        <!-- each .proj-row is clickable → opens detail modal -->
-        <div class="proj-row" data-proj-idx="0" onclick="openProjModal(0)">
-          <div class="proj-left"><span class="proj-medal"><i class="fas fa-medal" style="color:#ffd700"></i></span><span class="proj-title">KDP Sprint</span></div>
-          <div class="proj-right"><span class="proj-date">17-30/05</span></div>
-        </div>
-        <div class="proj-row" data-proj-idx="1" onclick="openProjModal(1)">
-          <div class="proj-left"><span class="proj-medal"><i class="fas fa-medal" style="color:#ffd700"></i></span><span class="proj-title">Amazon FBA</span></div>
-          <div class="proj-right"><span class="proj-date">GD 0</span></div>
-        </div>
-        <div class="proj-row" data-proj-idx="2" onclick="openProjModal(2)">
-          <div class="proj-left"><span class="proj-medal"><i class="fas fa-medal" style="color:#c0c0c0"></i></span><span class="proj-title">CV Remote PM</span></div>
-          <div class="proj-right"><span class="proj-date">Toptal screening</span></div>
-        </div>
-        <div class="proj-row" data-proj-idx="3" onclick="openProjModal(3)">
-          <div class="proj-left"><span class="proj-medal"><i class="fas fa-medal" style="color:#cd7f32"></i></span><span class="proj-title">Game Dev</span></div>
-          <div class="proj-right"><span class="proj-date">Tạm dừng</span></div>
-        </div>
-        <div class="proj-row" data-proj-idx="4" onclick="openProjModal(4)">
-          <div class="proj-left"><span class="proj-title" style="padding-left:32px">Leadership</span></div>
-          <div class="proj-right"><span class="proj-badge active">Active</span></div>
-        </div>
-        <div class="proj-row" data-proj-idx="5" onclick="openProjModal(5)">
-          <div class="proj-left"><span class="proj-title" style="padding-left:32px">YouTube Upload</span></div>
-          <div class="proj-right"><span class="proj-badge running">Running</span></div>
-        </div>
+    <div class="card"><h3><i class="fas fa-bullseye"></i> Dự án</h3>
+      <div class="stat-row"><span class="stat-label">🥇 KDP Sprint</span><span class="stat-value"><span class="tag p1">17-30/05</span></span></div>
+      <div class="stat-row"><span class="stat-label">🥇 Amazon FBA</span><span class="stat-value"><span class="tag p1">GD 0</span></span></div>
+      <div class="stat-row"><span class="stat-label">🥈 CV Remote</span><span class="stat-value"><span class="tag p2">Toptal screening</span></span></div>
+      <div class="stat-row"><span class="stat-label">🥉 Game Dev</span><span class="stat-value"><span class="tag p3">Tạm dừng</span></span></div>
+      <div class="stat-row"><span class="stat-label">Leadership</span><span class="stat-value"><span class="tag green">Active</span></span></div>
+      <div class="stat-row"><span class="stat-label">YouTube Upload</span><span class="stat-value"><span class="tag green">Running</span></span></div>
+    </div>
+  </div>
+  <div class="card"><h3>📋 ALL TASKS <span class="count">ClickUp Style</span></h3>
+  <div class="task-table">
+    <div class="task-table-header">
+      <div class="col-task">TASK</div>
+      <div class="col-priority" data-label="Priority">PRIORITY</div>
+      <div class="col-deadline" data-label="Deadline">DEADLINE</div>
+      <div class="col-progress" data-label="Progress">PROGRESS</div>
+      <div class="col-status" data-label="Status">STATUS</div>
+    </div>
+
+    <div class="task-table-row p1-row">
+      <div class="col-task">
+        <div class="task-name"><i class="fas fa-book-open" style="color:var(--accent)"></i> Viết sách KDP</div>
+        <div class="task-desc">How to Manage a UI/UX Design Project — 15 chương, ~180 trang. File tại 05_Amazon/KDP/</div>
       </div>
+      <div class="col-priority" data-label="Priority"><span class="tag p1">🥇 P1</span></div>
+      <div class="col-deadline" data-label="Deadline"><span class="deadline warn">30/05</span></div>
+      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:7%"></div></div><span class="progress-text">7% (1/15 chương)</span></div>
+      <div class="col-status" data-label="Status"><span class="status-badge in-progress"><i class="fas fa-circle"></i> Đang viết</span></div>
     </div>
-  </div>
 
-  <div class="card" id="tasksCard"><h3>📋 Chi tiết <span class="count">Bấm vào task để xem/edit</span></h3>
-  <div class="task-compact" id="taskCompact">
-    <!-- each .task-compact-row is interactive -->
-    <div class="task-compact-row" onclick="openTaskDetail('kdp')" data-task="kdp">
-      <div class="tcr-left"><span class="tcr-priority p1">🥇</span><div class="tcr-info"><span class="tcr-name">Viết sách KDP</span><span class="tcr-desc">How to Manage a UI/UX Design Project</span></div></div>
-      <div class="tcr-right"><div class="tcr-bar"><div class="tcr-fill" style="width:7%"></div></div><span class="tcr-pct">7%</span></div>
-    </div>
-    <div class="task-compact-row" onclick="openTaskDetail('amazon')" data-task="amazon">
-      <div class="tcr-left"><span class="tcr-priority p1">🥇</span><div class="tcr-info"><span class="tcr-name">Amazon FBA</span><span class="tcr-desc">Học cẩm nang → Chọn ngành → Hồ sơ Seller</span></div></div>
-      <div class="tcr-right"><div class="tcr-bar"><div class="tcr-fill" style="width:20%"></div></div><span class="tcr-pct">20%</span></div>
-    </div>
-    <div class="task-compact-row" onclick="openTaskDetail('cv')" data-task="cv">
-      <div class="tcr-left"><span class="tcr-priority p2">🥈</span><div class="tcr-info"><span class="tcr-name">CV Remote PM</span><span class="tcr-desc">Toptal · Vantage Search · LinkedIn · Upwork</span></div></div>
-      <div class="tcr-right"><div class="tcr-bar"><div class="tcr-fill" style="width:15%"></div></div><span class="tcr-pct">15%</span></div>
-    </div>
-    <div class="task-compact-row" onclick="openTaskDetail('game')" data-task="game">
-      <div class="tcr-left"><span class="tcr-priority p3">🥉</span><div class="tcr-info"><span class="tcr-name">3QR Game</span><span class="tcr-desc">Godot 4 · Xiangqi engine ~95%</span></div></div>
-      <div class="tcr-right"><div class="tcr-bar"><div class="tcr-fill" style="width:95%"></div></div><span class="tcr-pct">95%</span></div>
-    </div>
-    <div class="task-compact-row" onclick="openTaskDetail('youtube')" data-task="youtube">
-      <div class="tcr-left"><span class="tcr-priority p3">🥉</span><div class="tcr-info"><span class="tcr-name">Google Photos → YouTube</span><span class="tcr-desc">147 videos · 6/41 ZIPs · Daily 7:00</span></div></div>
-      <div class="tcr-right"><div class="tcr-bar"><div class="tcr-fill" style="width:15%"></div></div><span class="tcr-pct">15%</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ====== PROJECT MODAL (Dự án detail) ====== -->
-<div class="proj-modal-overlay" id="projModal" style="display:none" onclick="if(event.target===this)closeProjModal()">
-  <div class="proj-modal">
-    <div class="proj-modal-header">
-      <h3 id="projModalTitle"><i class="fas fa-medal"></i> <span id="projModalName"></span></h3>
-      <button class="proj-modal-close" onclick="closeProjModal()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="proj-modal-body" id="projModalBody">
-    </div>
-  </div>
-</div>
-
-<!-- ====== TASK DETAIL MODAL (inline edit) ====== -->
-<div class="proj-modal-overlay" id="taskModal" style="display:none" onclick="if(event.target===this)closeTaskModal()">
-  <div class="proj-modal">
-    <div class="proj-modal-header">
-      <h3 id="taskModalTitle"><i class="fas fa-tasks"></i> <span id="taskModalName"></span></h3>
-      <button class="proj-modal-close" onclick="closeTaskModal()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="proj-modal-body" id="taskModalBody">
-    </div>
-  </div>
-</div>
-
-<script>
-// ====== PROJECT DATA ======
-const PROJ_DATA = [
-  { name:"KDP Sprint", medal:"gold", status:"17-30/05", desc:"Viết sách How to Manage a UI/UX Design Project (15 chương, ~180 trang).", deadline:"30/05", progress:7 },
-  { name:"Amazon FBA", medal:"gold", status:"GD 0", desc:"Học cẩm nang → Chọn ngành hàng → Hồ sơ Seller → PingPong ✅ → W-8BEN", deadline:"22/05", progress:20 },
-  { name:"CV Remote PM", medal:"silver", status:"Toptal screening", desc:"Toptal screening. Đã apply Vantage Search. Còn LinkedIn, TopDev, ITViec, Upwork", deadline:"—", progress:15 },
-  { name:"Game Dev", medal:"bronze", status:"Tạm dừng", desc:"3QR (Godot 4, Xiangqi engine ~95%). Double Agent (design). Iron Throne (design)", deadline:"—", progress:95 },
-  { name:"Leadership", medal:"none", status:"Active", desc:"Daily content cho Quỳnh (EN→Telegram 6:00, VN→Email 6:10). 8 lessons done.", deadline:"Daily", progress:100 },
-  { name:"YouTube Upload", medal:"none", status:"Running", desc:"Tự động upload Google Photos → YouTube 7:00 AM. 147 videos, 6/41 ZIPs done.", deadline:"Daily", progress:15 }
-];
-
-function openProjModal(idx) {
-  const p = PROJ_DATA[idx];
-  document.getElementById('projModalName').textContent = p.name;
-  document.getElementById('projModalTitle').innerHTML = '<i class="fas fa-bullseye" style="color:var(--accent)"></i> ' + p.name;
-  
-  let medalIcon = '';
-  if (p.medal === 'gold') medalIcon = '<span style="color:#ffd700"><i class="fas fa-medal"></i></span> ';
-  else if (p.medal === 'silver') medalIcon = '<span style="color:#c0c0c0"><i class="fas fa-medal"></i></span> ';
-  else if (p.medal === 'bronze') medalIcon = '<span style="color:#cd7f32"><i class="fas fa-medal"></i></span> ';
-  
-  document.getElementById('projModalBody').innerHTML = `
-    <div class="proj-detail-row"><span class="proj-detail-label">${medalIcon}Trạng thái</span><span class="proj-detail-val">${p.status}</span></div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📅 Hạn</span><span class="proj-detail-val">${p.deadline}</span></div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📝 Mô tả</span><span class="proj-detail-val">${p.desc}</span></div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📊 Tiến độ</span><span class="proj-detail-val"><div class="tcr-bar" style="flex:1;max-width:200px"><div class="tcr-fill" style="width:${p.progress}%"></div></div><span style="margin-left:8px;font-size:13px">${p.progress}%</span></span></div>
-  `;
-  document.getElementById('projModal').style.display = 'flex';
-}
-
-function closeProjModal() {
-  document.getElementById('projModal').style.display = 'none';
-}
-
-// ====== TASK DETAIL DATA ======
-const TASK_DATA = {
-  kdp:{
-    name:"Viết sách KDP",
-    priority:1,
-    deadline:"30/05",
-    progress:7,
-    status:"Đang viết",
-    desc:"How to Manage a UI/UX Design Project — 15 chương, ~180 trang. File tại 05_Amazon/KDP/",
-    subtasks:["Outline 15 chương ✅","Viết Preface ✅","Chương 1 (đang viết)","Chương 2-5","Review & edit"]
-  },
-  amazon:{
-    name:"Amazon FBA",
-    priority:1,
-    deadline:"22/05",
-    progress:20,
-    status:"Học & CB",
-    desc:"Học cẩm nang → Chọn ngành hàng → Hồ sơ Seller → PingPong ✅ → W-8BEN (30%→0%)",
-    subtasks:["Đọc cẩm nang ✅","Tạo PingPong ✅","Chọn ngành hàng","Tạo Seller Central","Nộp W-8BEN"]
-  },
-  cv:{
-    name:"CV Remote PM",
-    priority:2,
-    deadline:"—",
-    progress:15,
-    status:"Chờ apply",
-    desc:"Toptal screening · Đã apply Vantage Search · Còn LinkedIn, TopDev, ITViec, Upwork",
-    subtasks:["Toptal account ✅","Apply Vantage Search ✅","Tối ưu LinkedIn","Apply TopDev","Apply ITViec"]
-  },
-  game:{
-    name:"3QR Game",
-    priority:3,
-    deadline:"—",
-    progress:95,
-    status:"Tạm dừng",
-    desc:"Godot 4 · Xiangqi engine ~95% · Còn assets, card system, roguelite progression",
-    subtasks:["Xiangqi engine ✅","Piece movement ✅","Check/checkmate ✅","Assets (board, pieces)","Card system"]
-  },
-  youtube:{
-    name:"Google Photos → YouTube",
-    priority:3,
-    deadline:"Daily",
-    progress:15,
-    status:"Tự động",
-    desc:"Upload tự động 7:00 AM · 147 videos · 6/41 ZIPs · Còn ~5-6 ngày",
-    subtasks:["Script upload ✅","Schedule cron ✅","6/41 ZIPs done","Còn 35 ZIPs"]
-  }
-};
-
-function openTaskDetail(id) {
-  const t = TASK_DATA[id];
-  if (!t) return;
-  
-  document.getElementById('taskModalName').textContent = t.name;
-  const pLabel = ['','🥇 P1','🥈 P2','🥉 P3'];
-  const statusColors = {'Đang viết':'#22c55e','Học & CB':'var(--accent)','Chờ apply':'var(--yellow)','Tạm dừng':'var(--muted)','Tự động':'#a78bfa'};
-  
-  document.getElementById('taskModalTitle').innerHTML = '<i class="fas fa-tasks" style="color:var(--accent)"></i> ' + t.name;
-  
-  let subtaskHtml = t.subtasks.map((s, i) => {
-    const done = s.includes('✅') ? 'checked' : '';
-    const txt = s.replace(' ✅','');
-    return `<div class="subtask-item ${done}" onclick="this.classList.toggle('done')"><i class="${done ? 'fas fa-check-circle' : 'far fa-circle'}" style="color:${done ? 'var(--green)' : 'var(--muted)'};width:18px"></i><span class="subtask-label">${txt}</span></div>`;
-  }).join('');
-  
-  document.getElementById('taskModalBody').innerHTML = `
-    <div class="proj-detail-row"><span class="proj-detail-label">🎯 Priority</span>
-      <select class="edit-inline" id="taskEditPriority" onchange="updateTaskField('${id}','priority',this.value)">
-        <option value="1" ${t.priority===1?'selected':''}>P1 - Urgent</option>
-        <option value="2" ${t.priority===2?'selected':''}>P2 - Important</option>
-        <option value="3" ${t.priority===3?'selected':''}>P3 - Later</option>
-      </select>
-    </div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📅 Deadline</span><input class="edit-inline" id="taskEditDeadline" value="${t.deadline}" onchange="updateTaskField('${id}','deadline',this.value)" style="width:120px"></div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📊 Progress</span>
-      <div style="display:flex;align-items:center;gap:8px;flex:1">
-        <input type="range" min="0" max="100" value="${t.progress}" id="taskEditProgress" oninput="updateTaskProgress('${id}',this.value)" style="flex:1;accent-color:var(--accent);height:6px">
-        <span id="taskEditPct">${t.progress}%</span>
+    <div class="task-table-row p1-row">
+      <div class="col-task">
+        <div class="task-name"><i class="fas fa-box" style="color:var(--yellow)"></i> Amazon FBA</div>
+        <div class="task-desc">Học cẩm nang → Chọn ngành hàng → Hồ sơ Seller → PingPong ✅ → W-8BEN (30%→0%)</div>
       </div>
+      <div class="col-priority" data-label="Priority"><span class="tag p1">🥇 P1</span></div>
+      <div class="col-deadline" data-label="Deadline"><span class="deadline warn">Tuần 1: 22/05</span></div>
+      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div><span class="progress-text">20% (PingPong ✅)</span></div>
+      <div class="col-status" data-label="Status"><span class="status-badge in-progress"><i class="fas fa-circle"></i> Học & CB</span></div>
     </div>
-    <div class="proj-detail-row"><span class="proj-detail-label">📝 Mô tả</span><span class="proj-detail-val" style="color:var(--text2);font-size:13px;line-height:1.5">${t.desc}</span></div>
-    <div class="proj-detail-row" style="flex-direction:column;align-items:stretch;gap:6px">
-      <span class="proj-detail-label" style="margin-bottom:4px">✅ Subtasks</span>
-      ${subtaskHtml}
+
+    <div class="task-table-row p2-row">
+      <div class="col-task">
+        <div class="task-name"><i class="fas fa-briefcase" style="color:var(--green)"></i> CV Remote PM</div>
+        <div class="task-desc">Toptal screening · Đã apply Vantage Search · Còn LinkedIn, TopDev, ITViec, Upwork</div>
+      </div>
+      <div class="col-priority" data-label="Priority"><span class="tag p2">🥈 P2</span></div>
+      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">—</span></div>
+      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div><span class="progress-text">15%</span></div>
+      <div class="col-status" data-label="Status"><span class="status-badge pending"><i class="fas fa-circle"></i> Chờ apply</span></div>
     </div>
-  `;
-  
-  document.getElementById('taskModal').style.display = 'flex';
-}
 
-function closeTaskModal() {
-  document.getElementById('taskModal').style.display = 'none';
-}
+    <div class="task-table-row p3-row">
+      <div class="col-task">
+        <div class="task-name"><i class="fas fa-gamepad" style="color:var(--muted)"></i> 3QR Game (tạm dừng)</div>
+        <div class="task-desc">Godot 4 · Xiangqi engine ~95% · Còn assets, card system, roguelite progression</div>
+      </div>
+      <div class="col-priority" data-label="Priority"><span class="tag p3">🥉 P3</span></div>
+      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">—</span></div>
+      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div><span class="progress-text">~95% (engine)</span></div>
+      <div class="col-status" data-label="Status"><span class="status-badge paused"><i class="fas fa-pause-circle"></i> Tạm dừng</span></div>
+    </div>
 
-function updateTaskField(id, field, value) {
-  if (TASK_DATA[id]) {
-    TASK_DATA[id][field] = field === 'priority' ? parseInt(value) : value;
-    console.log('Updated', id, field, '=', value);
-  }
-}
-
-function updateTaskProgress(id, val) {
-  const t = TASK_DATA[id];
-  if (!t) return;
-  t.progress = parseInt(val);
-  document.getElementById('taskEditPct').textContent = val + '%';
-  // Also update the compact row
-  const row = document.querySelector('.task-compact-row[data-task="'+id+'"]');
-  if (row) {
-    row.querySelector('.tcr-fill').style.width = val + '%';
-    row.querySelector('.tcr-pct').textContent = val + '%';
-  }
-}
-
-// Close modals on Escape
- document.addEventListener('keydown',function(e){
-   if(e.key==='Escape'){closeProjModal();closeTaskModal()}
- });
-</script>
+    <div class="task-table-row p3-row">
+      <div class="col-task">
+        <div class="task-name"><i class="fas fa-video" style="color:var(--muted)"></i> Google Photos → YouTube</div>
+        <div class="task-desc">Upload tự động 7:00 AM · 147 videos · 6/41 ZIPs · Còn ~5-6 ngày</div>
+      </div>
+      <div class="col-priority" data-label="Priority"><span class="tag p3">🥉 P3</span></div>
+      <div class="col-deadline" data-label="Deadline"><span class="deadline ok">Daily auto</span></div>
+      <div class="col-progress" data-label="Progress"><div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div><span class="progress-text">15% (6/41 ZIPs)</span></div>
+      <div class="col-status" data-label="Status"><span class="status-badge auto"><i class="fas fa-robot"></i> Tự động</span></div>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="page" id="page-backlog">
@@ -859,11 +641,19 @@ function updateTaskProgress(id, val) {
  .modal h2{font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
  .modal-close{float:right;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer}
  .modal-close:hover{color:var(--text)}
- .modal-meta{display:flex;gap:12px;flex-wrap:wrap}
- .modal-meta-item{font-size:13px;display:flex;align-items:center;gap:4px}
  .modal-section{margin-bottom:16px}
  .modal-section h3{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+ .modal-meta{display:flex;gap:12px;flex-wrap:wrap}
+ .modal-meta-item{font-size:13px;display:flex;align-items:center;gap:4px}
+ .subtask-item{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:6px;cursor:pointer}
+ .subtask-item:hover{background:var(--hover)}
+ .subtask-item.done .subtask-label{text-decoration:line-through;opacity:.6}
+ .subtask-label{font-size:13px;flex:1}
+ .subtask-value{font-size:12px;color:var(--muted)}
  .file-viewer{background:var(--bg);border-radius:6px;padding:12px;max-height:250px;overflow-y:auto;font-size:12px;line-height:1.4;white-space:pre-wrap;color:var(--text2);font-family:monospace}
+ .edit-inline{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:4px;font-size:13px;width:120px}
+ .edit-inline:focus{outline:none;border-color:var(--accent)}
+ select.edit-inline{width:auto}
  .fade-enter-active,.fade-leave-active{transition:opacity .2s}
  .fade-enter-from,.fade-leave-to{opacity:0}
  @media(max-width:768px){
