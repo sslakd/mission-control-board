@@ -440,31 +440,85 @@ function saveTask() {
   
   <!-- DOING -->
   <div class="card"><h3><i class="fas fa-spinner fa-pulse" style="color:var(--accent)"></i> 🔥 Doing</h3>
-    <div class="todo-item"><i class="fas fa-play-circle" style="color:var(--accent)"></i><span><strong>Viết sách KDP</strong> — Sprint 17-30/05: 2/15 chương (14%)</span></div>
-    <div class="todo-item"><i class="fas fa-play-circle" style="color:var(--accent)"></i><span><strong>Amazon FBA</strong> — Giai đoạn 0: Học cẩm nang, chọn ngành</span></div>
+    <div class="todo-item" data-id="doing-kdp" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--accent);cursor:pointer"></i><span><strong>Viết sách KDP</strong> — Sprint 17-30/05: 2/15 chương (14%)</span></div>
+    <div class="todo-item" data-id="doing-amazon" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--accent);cursor:pointer"></i><span><strong>Amazon FBA</strong> — Giai đoạn 0: Học cẩm nang, chọn ngành</span></div>
   </div>
   
   <!-- TO DO -->
   <div class="card"><h3><i class="fas fa-list" style="color:var(--yellow)"></i> 📋 To Do</h3>
-    <div class="todo-item"><i class="far fa-circle" style="color:var(--muted)"></i><span>Update LinkedIn profile</span></div>
-    <div class="todo-item"><i class="far fa-circle" style="color:var(--muted)"></i><span>Update sslakd.com content</span></div>
-    <div class="todo-item"><i class="far fa-circle" style="color:var(--muted)"></i><span>Đẩy CV lên job boards</span><span class="tag green" style="margin-left:auto"><i class="fas fa-check-circle"></i> Có content + PDF</span></div>
-    <div class="todo-item"><i class="far fa-circle" style="color:var(--muted)"></i><span>Fix UID warning 3QR</span></div>
+    <div class="todo-item" data-id="todo-linkedin" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Update LinkedIn profile</span></div>
+    <div class="todo-item" data-id="todo-sslakd" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Update sslakd.com content</span></div>
+    <div class="todo-item" data-id="todo-cvboards" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Đẩy CV lên job boards</span><span class="tag green" style="margin-left:auto"><i class="fas fa-check-circle"></i> Có content + PDF</span></div>
+    <div class="todo-item" data-id="todo-3qr" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Fix UID warning 3QR</span></div>
   </div>
   
   <!-- DONE -->
   <div class="card"><h3><i class="fas fa-check-circle" style="color:var(--green)"></i> ✅ Done</h3>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Setup cron EN + VN</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">8 bài EN + VN Leadership</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Game 3QR prototype</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Soạn GDD 3 game</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">CV Remote PM optimized</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">sslakd.com live</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Mission Control Board deploy</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Soạn nội dung LinkedIn</span></div>
-    <div class="todo-item done"><i class="fas fa-check-circle" style="color:var(--green)"></i><span class="todo-text">Sắp xếp Desktop/Openclaw/</span></div>
+    <div class="todo-item done" data-id="done-cron" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Setup cron EN + VN</span></div>
+    <div class="todo-item done" data-id="done-leadership" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">8 bài EN + VN Leadership</span></div>
+    <div class="todo-item done" data-id="done-3qrproto" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Game 3QR prototype</span></div>
+    <div class="todo-item done" data-id="done-gdd" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Soạn GDD 3 game</span></div>
+    <div class="todo-item done" data-id="done-cv" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">CV Remote PM optimized</span></div>
+    <div class="todo-item done" data-id="done-sslakd" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">sslakd.com live</span></div>
+    <div class="todo-item done" data-id="done-mcb" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Mission Control Board deploy</span></div>
+    <div class="todo-item done" data-id="done-linkedin" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Soạn nội dung LinkedIn</span></div>
+    <div class="todo-item done" data-id="done-desktop" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Sắp xếp Desktop/Openclaw/</span></div>
   </div>
 </div>
+
+<script>
+// Backlog checkbox toggle — lưu vào localStorage
+const BACKLOG_KEY = 'backlog_checks';
+function toggleBacklog(el) {
+  const id = el.dataset.id;
+  if (!id) return;
+  
+  // Toggle class
+  el.classList.toggle('done');
+  
+  // Update icon
+  const icon = el.querySelector('i');
+  if (el.classList.contains('done')) {
+    icon.className = 'fas fa-check-square';
+    icon.style.color = 'var(--green)';
+  } else {
+    icon.className = 'far fa-circle';
+    icon.style.color = 'var(--muted)';
+  }
+  
+  // Save to localStorage
+  const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
+  saved[id] = el.classList.contains('done');
+  localStorage.setItem(BACKLOG_KEY, JSON.stringify(saved));
+}
+
+// Load saved states on page load
+function restoreBacklog() {
+  const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
+  document.querySelectorAll('#page-backlog .todo-item').forEach(el => {
+    const id = el.dataset.id;
+    if (id && saved[id]) {
+      el.classList.add('done');
+      const icon = el.querySelector('i');
+      icon.className = 'fas fa-check-square';
+      icon.style.color = 'var(--green)';
+    }
+  });
+}
+
+// Run restore when backlog page becomes active
+const origSwitch = window.switchToPage;
+if (origSwitch) {
+  window.switchToPage = function(page) {
+    origSwitch(page);
+    if (page === 'backlog') {
+      setTimeout(restoreBacklog, 50);
+    }
+  };
+}
+// Also run on initial load
+restoreBacklog();
+</script>
 
 <div class="page" id="page-cron">
   <div class="page-header"><h2><i class="fas fa-clock"></i> Cron Jobs</h2><p>Tự động: Leadership + Amazon + KDP + YouTube</p></div>
