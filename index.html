@@ -440,33 +440,59 @@ function saveTask() {
   
   <!-- DOING -->
   <div class="card"><h3><i class="fas fa-spinner fa-pulse" style="color:var(--accent)"></i> 🔥 Doing</h3>
-    <div class="todo-item" data-id="doing-kdp" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--accent);cursor:pointer"></i><span><strong>Viết sách KDP</strong> — Sprint 17-30/05: 2/15 chương (14%)</span></div>
-    <div class="todo-item" data-id="doing-amazon" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--accent);cursor:pointer"></i><span><strong>Amazon FBA</strong> — Giai đoạn 0: Học cẩm nang, chọn ngành</span></div>
+    <div class="todo-item" data-id="doing-kdp" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--accent);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span><strong>Viết sách KDP</strong> — Sprint 17-30/05: 2/15 chương (14%)</span></div>
+    <div class="todo-item" data-id="doing-amazon" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--accent);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span><strong>Amazon FBA</strong> — Giai đoạn 0: Học cẩm nang, chọn ngành</span></div>
   </div>
   
   <!-- TO DO -->
   <div class="card"><h3><i class="fas fa-list" style="color:var(--yellow)"></i> 📋 To Do</h3>
-    <div class="todo-item" data-id="todo-linkedin" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Update LinkedIn profile</span></div>
-    <div class="todo-item" data-id="todo-sslakd" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Update sslakd.com content</span></div>
-    <div class="todo-item" data-id="todo-cvboards" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Đẩy CV lên job boards</span><span class="tag green" style="margin-left:auto"><i class="fas fa-check-circle"></i> Có content + PDF</span></div>
-    <div class="todo-item" data-id="todo-3qr" onclick="toggleBacklog(this)"><i class="far fa-circle" style="color:var(--muted);cursor:pointer"></i><span>Fix UID warning 3QR</span></div>
+    <div class="todo-item" data-id="todo-linkedin" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--muted);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span>Update LinkedIn profile</span></div>
+    <div class="todo-item" data-id="todo-sslakd" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--muted);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span>Update sslakd.com content</span></div>
+    <div class="todo-item" data-id="todo-cvboards" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--muted);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span>Đẩy CV lên job boards</span><span class="tag green" style="margin-left:auto"><i class="fas fa-check-circle"></i> Có content + PDF</span></div>
+    <div class="todo-item" data-id="todo-3qr" draggable="true"><span class="drag-handle">⠿</span><i class="far fa-circle" style="color:var(--muted);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span>Fix UID warning 3QR</span></div>
   </div>
   
   <!-- DONE -->
   <div class="card"><h3><i class="fas fa-check-circle" style="color:var(--green)"></i> ✅ Done</h3>
-    <div class="todo-item done" data-id="done-cron" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Setup cron EN + VN</span></div>
-    <div class="todo-item done" data-id="done-leadership" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">8 bài EN + VN Leadership</span></div>
-    <div class="todo-item done" data-id="done-3qrproto" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Game 3QR prototype</span></div>
-    <div class="todo-item done" data-id="done-gdd" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Soạn GDD 3 game</span></div>
-    <div class="todo-item done" data-id="done-cv" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">CV Remote PM optimized</span></div>
-    <div class="todo-item done" data-id="done-sslakd" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">sslakd.com live</span></div>
-    <div class="todo-item done" data-id="done-mcb" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Mission Control Board deploy</span></div>
-    <div class="todo-item done" data-id="done-linkedin" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Soạn nội dung LinkedIn</span></div>
-    <div class="todo-item done" data-id="done-desktop" onclick="toggleBacklog(this)"><i class="fas fa-check-square" style="color:var(--green);cursor:pointer"></i><span class="todo-text">Sắp xếp Desktop/Openclaw/</span></div>
+    <div class="todo-item done" data-id="done-cron" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Setup cron EN + VN</span></div>
+    <div class="todo-item done" data-id="done-leadership" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">8 bài EN + VN Leadership</span></div>
+    <div class="todo-item done" data-id="done-3qrproto" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Game 3QR prototype</span></div>
+    <div class="todo-item done" data-id="done-gdd" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Soạn GDD 3 game</span></div>
+    <div class="todo-item done" data-id="done-cv" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">CV Remote PM optimized</span></div>
+    <div class="todo-item done" data-id="done-sslakd" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">sslakd.com live</span></div>
+    <div class="todo-item done" data-id="done-mcb" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Mission Control Board deploy</span></div>
+    <div class="todo-item done" data-id="done-linkedin" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Soạn nội dung LinkedIn</span></div>
+    <div class="todo-item done" data-id="done-desktop" draggable="true"><span class="drag-handle">⠿</span><i class="fas fa-check-square" style="color:var(--green);cursor:pointer" onclick="toggleBacklog(this.closest('.todo-item'))"></i><span class="todo-text">Sắp xếp Desktop/Openclaw/</span></div>
   </div>
 </div>
 
 <style>
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+.todo-item:hover {
+  background: var(--hover);
+}
+.drag-handle {
+  cursor: grab;
+  color: var(--muted);
+  font-size: 16px;
+  letter-spacing: 2px;
+  user-select: none;
+  flex-shrink: 0;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+.todo-item[draggable="true"] .drag-handle:hover ~ * {
+  opacity: 0.7;
+}
 .backlog-move {
   transition: all 0.4s ease;
 }
@@ -474,55 +500,187 @@ function saveTask() {
   opacity: 0;
   transform: translateY(-10px);
 }
+.todo-item.dragging {
+  opacity: 0.4;
+  background: var(--card2);
+}
+.todo-item.drag-over {
+  border-top: 2px solid var(--accent);
+}
+.drop-zone {
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.drop-zone.drag-over {
+  height: 24px;
+  background: var(--accent);
+  opacity: 0.3;
+}
 </style>
 <script>
 // Backlog checkbox toggle — move item between sections + lưu localStorage
 const BACKLOG_KEY = 'backlog_checks';
 
+// Drag and Drop — only initiate from drag-handle
+let dragSrcEl = null;
+
+function setupDragDrop() {
+  setupDragCards();
+}
+
+function setupDragCards() {
+  document.querySelectorAll('#page-backlog .todo-item').forEach(el => {
+    // Store original draggable attribute state
+    const handle = el.querySelector('.drag-handle');
+    el.draggable = true;
+    
+    // Only start drag when mousedown on handle
+    el.addEventListener('mousedown', function(e) {
+      if (e.target.classList.contains('drag-handle')) {
+        el.draggable = true;
+      } else {
+        el.draggable = false;
+      }
+    });
+    el.addEventListener('mouseup', function() { el.draggable = true; });
+    
+    el.addEventListener('dragstart', handleDragStart);
+    el.addEventListener('dragend', handleDragEnd);
+    el.addEventListener('dragover', handleDragOver);
+    el.addEventListener('dragenter', handleDragEnter);
+    el.addEventListener('dragleave', handleDragLeave);
+    el.addEventListener('drop', handleDrop);
+  });
+  
+  // Add drop zones inside each card
+  document.querySelectorAll('#page-backlog .card').forEach(card => {
+    // Add after h3
+    const zone = document.createElement('div');
+    zone.className = 'drop-zone';
+    zone.addEventListener('dragover', handleZoneOver);
+    zone.addEventListener('drop', handleZoneDrop);
+    card.querySelector('h3').after(zone);
+  });
+}
+
+function handleDragStart(e) {
+  // Don't allow drag unless initiated from drag-handle
+  if (!e.target.classList.contains('drag-handle') && !e.target.closest('.drag-handle')) {
+    e.preventDefault();
+    return;
+  }
+  dragSrcEl = this;
+  this.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/plain', this.dataset.id);
+}
+
+function handleDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+}
+
+function handleDragEnter(e) {
+  e.preventDefault();
+  if (this !== dragSrcEl && !this.classList.contains('drop-zone')) {
+    this.classList.add('drag-over');
+  }
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('drag-over');
+}
+
+function handleDragEnd(e) {
+  this.classList.remove('dragging', 'drag-start');
+  document.querySelectorAll('.drag-over, .dragging').forEach(el => el.classList.remove('drag-over', 'dragging'));
+}
+
+function handleZoneOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  this.classList.add('drag-over');
+}
+
+function handleZoneDrop(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  this.classList.remove('drag-over');
+  
+  if (dragSrcEl) {
+    // Insert after this zone's sibling (zone is immediately after h3, so next sibling after zone)
+    this.after(dragSrcEl);
+    updateSectionState(dragSrcEl);
+  }
+  dragSrcEl = null;
+}
+
+function handleDrop(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  this.classList.remove('drag-over');
+  
+  if (dragSrcEl && dragSrcEl !== this) {
+    const parent = this.parentElement;
+    parent.insertBefore(dragSrcEl, this);
+    updateSectionState(dragSrcEl);
+  }
+  dragSrcEl = null;
+}
+
+function updateSectionState(el) {
+  const allCards = document.querySelectorAll('#page-backlog .card');
+  const cardIndex = Array.from(allCards).indexOf(el.closest('.card'));
+  const id = el.dataset.id;
+  const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
+  
+  if (cardIndex === 3) {
+    saved[id] = true;
+    el.classList.add('done');
+    const icon = el.querySelector('i');
+    icon.className = 'fas fa-check-square';
+    icon.style.color = 'var(--green)';
+  } else {
+    delete saved[id];
+    el.classList.remove('done');
+    const icon = el.querySelector('i');
+    icon.className = 'far fa-circle';
+    icon.style.color = cardIndex === 1 ? 'var(--accent)' : 'var(--muted)';
+  }
+  localStorage.setItem(BACKLOG_KEY, JSON.stringify(saved));
+}
+
 function toggleBacklog(el) {
   const id = el.dataset.id;
   if (!id) return;
-  
   const willBeDone = !el.classList.contains('done');
-  const doneCard = document.querySelector('#page-backlog .card:last-child');
-  const doingCard = document.querySelector('#page-backlog .card:nth-child(2)');
-  const todoCard = document.querySelector('#page-backlog .card:nth-child(3)');
-  
+  const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
   if (willBeDone) {
-    // Move to Done section
     el.classList.add('done', 'backlog-enter');
     const icon = el.querySelector('i');
     icon.className = 'fas fa-check-square';
     icon.style.color = 'var(--green)';
-    
-    // Animate: move to done after brief delay for visual feedback
-    if (doneCard) {
-      doneCard.querySelector('h3').after(el);
-      setTimeout(() => el.classList.remove('backlog-enter'), 50);
-    }
+    saved[id] = true;
+    const cards = document.querySelectorAll('#page-backlog .card');
+    if (cards[3]) cards[3].querySelector('.drop-zone').after(el);
   } else {
-    // Move back to To Do section
     el.classList.remove('done');
     const icon = el.querySelector('i');
     icon.className = 'far fa-circle';
     icon.style.color = 'var(--muted)';
-    
-    // Move to To Do section (put before the last item or at end)
-    if (todoCard) {
-      todoCard.querySelector('h3').after(el);
-    }
+    delete saved[id];
+    const cards = document.querySelectorAll('#page-backlog .card');
+    if (cards[2]) cards[2].querySelector('.drop-zone').after(el);
   }
-  
-  // Save to localStorage
-  const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
-  saved[id] = willBeDone;
   localStorage.setItem(BACKLOG_KEY, JSON.stringify(saved));
+  setTimeout(() => el.classList.remove('backlog-enter'), 50);
 }
 
 // Load saved states and move items to correct section
 function restoreBacklog() {
   const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
-  const doneCard = document.querySelector('#page-backlog .card:last-child');
+  const doneCard = document.querySelector('#page-backlog .card:nth-child(4)');
   const todoCard = document.querySelector('#page-backlog .card:nth-child(3)');
   
   document.querySelectorAll('#page-backlog .todo-item').forEach(el => {
@@ -532,12 +690,22 @@ function restoreBacklog() {
       const icon = el.querySelector('i');
       icon.className = 'fas fa-check-square';
       icon.style.color = 'var(--green)';
-      // Move to Done section
       if (doneCard && el.parentElement !== doneCard) {
-        doneCard.querySelector('h3').after(el);
+        const zone = doneCard.querySelector('.drop-zone');
+        zone ? zone.after(el) : doneCard.querySelector('h3').after(el);
+      }
+    } else if (id && !saved[id]) {
+      el.classList.remove('done');
+      const icon = el.querySelector('i');
+      icon.className = 'far fa-circle';
+      icon.style.color = 'var(--muted)';
+      if (todoCard && el.parentElement !== todoCard) {
+        const zone = todoCard.querySelector('.drop-zone');
+        zone ? zone.after(el) : todoCard.querySelector('h3').after(el);
       }
     }
   });
+  setTimeout(setupDragDrop, 50);
 }
 
 // Run restore when backlog page becomes active
