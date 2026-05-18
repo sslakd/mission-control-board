@@ -1,0 +1,53 @@
+{
+  "_updated": "2026-05-18T22:00:00+07:00",
+  "kdp": {
+    "title": "How to Manage a UI/UX Design Project",
+    "chaptersDone": 2,
+    "chaptersTotal": 15,
+    "wordsWritten": 3400,
+    "wordsTarget": 40000,
+    "sprintStart": "2026-05-17",
+    "sprintEnd": "2026-05-30",
+    "sprintDays": 14,
+    "sprintDaysDone": 2,
+    "percentComplete": 14,
+    "status": "Đang viết"
+  },
+  "youtube": {
+    "videosUploaded": 275,
+    "groupsUploaded": 47,
+    "zipsProcessed": 21,
+    "zipsTotal": 41,
+    "videosRemaining": 100,
+    "percentComplete": 51,
+    "eta": "2026-05-22",
+    "status": "Đang chạy"
+  },
+  "amazon": {
+    "phase": "Giai đoạn 0 — Học & Chuẩn bị",
+    "targetProfit": 5000,
+    "pingpong": true,
+    "sellerRegistered": false,
+    "camanDocProgress": 15,
+    "status": "Đang học"
+  },
+  "cron": {
+    "totalJobs": 6,
+    "activeJobs": 6,
+    "jobs": [
+      {"time": "6:00", "name": "EN Leadership", "to": "Telegram Jason", "status": "active"},
+      {"time": "6:10", "name": "VN Leadership", "to": "Email Quỳnh", "status": "active"},
+      {"time": "6:30", "name": "KDP Draft Review", "to": "Telegram Jason", "status": "active"},
+      {"time": "6:40", "name": "Morning Reading + Amazon News", "to": "Telegram Jason", "status": "active"},
+      {"time": "7:00", "name": "YouTube Upload", "to": "Telegram Jason", "status": "active"},
+      {"time": "19:00 (T2,T4,T5,T7)", "name": "Amazon Learning", "to": "System Event", "status": "active"}
+    ]
+  },
+  "projects": [
+    {"name": "Viết sách KDP", "prio": "P1", "progress": 14, "deadline": "30/05", "status": "Đang viết", "desc": "2/15 chương — ~3,400 từ"},
+    {"name": "Amazon FBA", "prio": "P1", "progress": 20, "deadline": "22/05", "status": "Học & CB", "desc": "PingPong ✅ → Chọn ngành"},
+    {"name": "CV Remote PM", "prio": "P2", "progress": 15, "deadline": "—", "status": "Chờ apply", "desc": "Toptal screening · Vantage Search"},
+    {"name": "YouTube Upload", "prio": "P3", "progress": 51, "deadline": "22/05", "status": "Đang chạy", "desc": "275 videos · 21/41 ZIPs"},
+    {"name": "3QR Game", "prio": "P3", "progress": 95, "deadline": "—", "status": "Tạm dừng", "desc": "Godot 4 · Xiangqi engine ~95%"}
+  ]
+}

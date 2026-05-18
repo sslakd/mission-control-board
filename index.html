@@ -240,23 +240,75 @@
 <script>
 const STORAGE_KEY = 'goc_toi_tasks';
 
-// Load from localStorage or use defaults
+// Load from data.json (live via GitHub) — fallback to localStorage, then defaults
 function loadTaskData() {
+  // Try fetch from data.json first
+  if (window._dataJsonLoaded) return window._dataJsonLoaded;
+  
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     try { return JSON.parse(saved); } catch(e) {}
   }
+  
+  // Try async fetch (handled by initDashboard)
+  return getDefaultTaskData();
+}
+
+function getDefaultTaskData() {
   return [
-    { name:"Viết sách KDP", prio:"P1", p:7, deadline:"30/05", status:"Đang viết", desc:"How to Manage a UI/UX Design Project — 15 chương, ~180 trang.", subtasks:["Outline 15 chương","Viết Preface","Chương 1 (đang viết)"] },
-    { name:"Amazon FBA", prio:"P1", p:20, deadline:"22/05", status:"Học & CB", desc:"Học cẩm nang → Chọn ngành → Hồ sơ Seller → PingPong ✅ → W-8BEN", subtasks:["Đọc cẩm nang","Tạo PingPong","Chọn ngành hàng"] },
-    { name:"CV Remote PM", prio:"P2", p:15, deadline:"—", status:"Chờ apply", desc:"Toptal screening · Vantage Search · LinkedIn · TopDev · Upwork", subtasks:["Toptal account","Apply Vantage Search","Tối ưu LinkedIn"] },
-    { name:"3QR Game", prio:"P3", p:95, deadline:"—", status:"Tạm dừng", desc:"Godot 4 · Xiangqi engine ~95% · Còn assets, card system", subtasks:["Xiangqi engine","Piece movement","Check/checkmate"] },
-    { name:"Google Photos → YouTube", prio:"P3", p:15, deadline:"Daily", status:"Tự động", desc:"147 videos · 6/41 ZIPs · Upload 7:00 AM daily", subtasks:["Script upload","Schedule cron","6/41 ZIPs done"] }
+    { name:"Viết sách KDP", prio:"P1", p:7, deadline:"30/05", status:"Đang viết", desc:"How to Manage a UI/UX Design Project — 15 chương, ~180 trang." },
+    { name:"Amazon FBA", prio:"P1", p:20, deadline:"22/05", status:"Học & CB", desc:"Học cẩm nang → PingPong ✅ → Chọn ngành" },
+    { name:"CV Remote PM", prio:"P2", p:15, deadline:"—", status:"Chờ apply", desc:"Toptal screening · Vantage Search" },
+    { name:"Google Photos → YouTube", prio:"P3", p:15, deadline:"Daily", status:"Tự động", desc:"147 videos · 6/41 ZIPs" },
+    { name:"3QR Game", prio:"P3", p:95, deadline:"—", status:"Tạm dừng", desc:"Godot 4 · Xiangqi engine ~95%" }
   ];
+}
+
+// Fetch data.json and merge into dashboard
+async function initDashboard() {
+  try {
+    const jsonUrl = window._dataJsonUrl || (window.location.origin + '/goc-toi/dashboard/data.json');
+    const resp = await fetch(jsonUrl + '?_=' + Date.now());
+    if (!resp.ok) throw new Error('Not found');
+    const data = await resp.json();
+    window._dataJsonLoaded = data;
+    
+    // Update projects from data.json
+    if (data.projects && data.projects.length > 0) {
+      TMC_DATA = data.projects;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
+      renderAllTasks();
+    }
+    
+    // Update cron count in sidebar
+    if (data.cron) {
+      document.querySelectorAll('.cron-count').forEach(el => {
+        el.textContent = data.cron.activeJobs + ' active';
+      });
+    }
+    
+    // Update system status area if exists
+    if (data.amazon) {
+      document.querySelectorAll('.amazon-phase').forEach(el => {
+        el.textContent = data.amazon.phase;
+      });
+    }
+    
+    console.log('✅ Dashboard data loaded from data.json');
+  } catch(e) {
+    console.log('ℹ️ Using localStorage fallback (data.json not available)');
+  }
 }
 
 let TMC_DATA = loadTaskData();
 let _activeIdx = -1;
+
+// Gọi initDashboard khi trang load xong
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDashboard);
+} else {
+  initDashboard();
+}
 
 function saveTaskData() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
@@ -653,7 +705,8 @@ function saveTask() {
       mdContent.innerHTML = '<p style="color:var(--muted);text-align:center;padding:40px"><i class="fas fa-spinner fa-spin"></i> Loading ' + escapeHtml(fileName) + '...</p>';
 
       // Try to fetch from raw GitHub
-      const rawUrl = RAW_BASE + filePath;
+      const dataJsonUrl = window.location.origin + '/goc-toi/dashboard/data.json';
+const rawUrl = RAW_BASE + filePath;
       document.getElementById('mdSource').href = rawUrl;
 
       fetch(rawUrl)
