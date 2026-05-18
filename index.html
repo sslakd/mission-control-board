@@ -466,35 +466,65 @@ function saveTask() {
   </div>
 </div>
 
+<style>
+.backlog-move {
+  transition: all 0.4s ease;
+}
+.backlog-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+</style>
 <script>
-// Backlog checkbox toggle — lưu vào localStorage
+// Backlog checkbox toggle — move item between sections + lưu localStorage
 const BACKLOG_KEY = 'backlog_checks';
+
 function toggleBacklog(el) {
   const id = el.dataset.id;
   if (!id) return;
   
-  // Toggle class
-  el.classList.toggle('done');
+  const willBeDone = !el.classList.contains('done');
+  const doneCard = document.querySelector('#page-backlog .card:last-child');
+  const doingCard = document.querySelector('#page-backlog .card:nth-child(2)');
+  const todoCard = document.querySelector('#page-backlog .card:nth-child(3)');
   
-  // Update icon
-  const icon = el.querySelector('i');
-  if (el.classList.contains('done')) {
+  if (willBeDone) {
+    // Move to Done section
+    el.classList.add('done', 'backlog-enter');
+    const icon = el.querySelector('i');
     icon.className = 'fas fa-check-square';
     icon.style.color = 'var(--green)';
+    
+    // Animate: move to done after brief delay for visual feedback
+    if (doneCard) {
+      doneCard.querySelector('h3').after(el);
+      setTimeout(() => el.classList.remove('backlog-enter'), 50);
+    }
   } else {
+    // Move back to To Do section
+    el.classList.remove('done');
+    const icon = el.querySelector('i');
     icon.className = 'far fa-circle';
     icon.style.color = 'var(--muted)';
+    
+    // Move to To Do section (put before the last item or at end)
+    if (todoCard) {
+      todoCard.querySelector('h3').after(el);
+    }
   }
   
   // Save to localStorage
   const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
-  saved[id] = el.classList.contains('done');
+  saved[id] = willBeDone;
   localStorage.setItem(BACKLOG_KEY, JSON.stringify(saved));
 }
 
-// Load saved states on page load
+// Load saved states and move items to correct section
 function restoreBacklog() {
   const saved = JSON.parse(localStorage.getItem(BACKLOG_KEY) || '{}');
+  const doneCard = document.querySelector('#page-backlog .card:last-child');
+  const todoCard = document.querySelector('#page-backlog .card:nth-child(3)');
+  
   document.querySelectorAll('#page-backlog .todo-item').forEach(el => {
     const id = el.dataset.id;
     if (id && saved[id]) {
@@ -502,6 +532,10 @@ function restoreBacklog() {
       const icon = el.querySelector('i');
       icon.className = 'fas fa-check-square';
       icon.style.color = 'var(--green)';
+      // Move to Done section
+      if (doneCard && el.parentElement !== doneCard) {
+        doneCard.querySelector('h3').after(el);
+      }
     }
   });
 }
@@ -512,12 +546,12 @@ if (origSwitch) {
   window.switchToPage = function(page) {
     origSwitch(page);
     if (page === 'backlog') {
-      setTimeout(restoreBacklog, 50);
+      setTimeout(restoreBacklog, 100);
     }
   };
 }
 // Also run on initial load
-restoreBacklog();
+setTimeout(restoreBacklog, 200);
 </script>
 
 <div class="page" id="page-cron">
