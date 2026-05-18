@@ -273,9 +273,16 @@ async function initDashboard() {
     const data = await resp.json();
     window._dataJsonLoaded = data;
     
-    // Update projects from data.json
+    // Update projects from data.json — map fields to match old format (uses p instead of progress)
     if (data.projects && data.projects.length > 0) {
-      TMC_DATA = data.projects;
+      TMC_DATA = data.projects.map(pr => ({
+        name: pr.name,
+        prio: pr.prio,
+        p: pr.progress || 0,
+        deadline: pr.deadline || '—',
+        status: pr.status || '',
+        desc: pr.desc || '',
+      }));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
       renderAllTasks();
     }
