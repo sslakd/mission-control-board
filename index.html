@@ -285,7 +285,10 @@ async function initDashboard() {
         subtasks: pr.subtasks || [],
       }));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
-      renderAllTasks();
+      // Only re-render if currently on Dashboard tab
+      if (document.querySelector('.nav-item.active')?.dataset?.page === 'dashboard') {
+        renderAllTasks();
+      }
     }
     
     // Update cron count in sidebar
