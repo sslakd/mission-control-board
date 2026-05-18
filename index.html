@@ -350,9 +350,12 @@ function renderAllTasks() {
     </div>`;
   }).join('');
   
-  // Mobile cards
+  // Mobile cards — only render on Dashboard tab
+  const isDashboard = document.querySelector('.nav-item.active')?.dataset?.page === 'dashboard';
   const mcard = document.querySelector('.task-mobile-cards');
   if (!mcard) return;
+  mcard.style.display = isDashboard ? 'block' : 'none';
+  if (!isDashboard) return;
   mcard.innerHTML = TMC_DATA.map((t,i) => {
     const pIcon = prioLabel[t.prio];
     return `<div class="tmc-row" onclick="openTaskMobile(${i})">
