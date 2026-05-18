@@ -282,6 +282,7 @@ async function initDashboard() {
         deadline: pr.deadline || '—',
         status: pr.status || '',
         desc: pr.desc || '',
+        subtasks: pr.subtasks || [],
       }));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(TMC_DATA));
       renderAllTasks();

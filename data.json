@@ -44,10 +44,10 @@
     ]
   },
   "projects": [
-    {"name": "Viết sách KDP", "prio": "P1", "progress": 14, "deadline": "30/05", "status": "Đang viết", "desc": "2/15 chương — ~3,400 từ"},
-    {"name": "Amazon FBA", "prio": "P1", "progress": 20, "deadline": "22/05", "status": "Học & CB", "desc": "PingPong ✅ → Chọn ngành"},
-    {"name": "CV Remote PM", "prio": "P2", "progress": 15, "deadline": "—", "status": "Chờ apply", "desc": "Toptal screening · Vantage Search"},
-    {"name": "YouTube Upload", "prio": "P3", "progress": 51, "deadline": "22/05", "status": "Đang chạy", "desc": "275 videos · 21/41 ZIPs"},
-    {"name": "3QR Game", "prio": "P3", "progress": 95, "deadline": "—", "status": "Tạm dừng", "desc": "Godot 4 · Xiangqi engine ~95%"}
+    {"name": "Viết sách KDP", "prio": "P1", "progress": 14, "deadline": "30/05", "status": "Đang viết", "desc": "2/15 chương — ~3,400 từ", "subtasks": ["Outline 15 chương", "Viết Preface", "Chương 1 ✅", "Chương 2 ✅"]},
+    {"name": "Amazon FBA", "prio": "P1", "progress": 20, "deadline": "22/05", "status": "Học & CB", "desc": "PingPong ✅ → Chọn ngành", "subtasks": ["Đọc cẩm nang", "Tạo PingPong ✅", "Chọn ngành hàng"]},
+    {"name": "CV Remote PM", "prio": "P2", "progress": 15, "deadline": "—", "status": "Chờ apply", "desc": "Toptal screening · Vantage Search", "subtasks": ["Toptal account ✅", "Apply Vantage Search ✅"]},
+    {"name": "YouTube Upload", "prio": "P3", "progress": 51, "deadline": "22/05", "status": "Đang chạy", "desc": "275 videos · 21/41 ZIPs", "subtasks": ["Script upload ✅", "Schedule cron ✅", "21/41 ZIPs done"]},
+    {"name": "3QR Game", "prio": "P3", "progress": 95, "deadline": "—", "status": "Tạm dừng", "desc": "Godot 4 · Xiangqi engine ~95%", "subtasks": ["Xiangqi engine", "Piece movement", "Check/checkmate"]}
   ]
 }
