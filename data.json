@@ -1,25 +1,25 @@
 {
-  "_updated": "2026-05-18T23:00:02+07:00",
+  "_updated": "2026-05-19T23:00:02+07:00",
   "kdp": {
     "title": "How to Manage a UI/UX Design Project",
     "chaptersDone": 2,
     "chaptersTotal": 15,
-    "wordsWritten": 3301,
+    "wordsWritten": 3401,
     "wordsTarget": 40000,
     "sprintStart": "2026-05-17",
     "sprintEnd": "2026-05-30",
     "sprintDays": 14,
-    "sprintDaysDone": 1,
-    "percentComplete": 7,
+    "sprintDaysDone": 2,
+    "percentComplete": 14,
     "status": "Đang viết"
   },
   "youtube": {
     "videosUploaded": 275,
     "groupsUploaded": 47,
-    "zipsProcessed": 21,
+    "zipsProcessed": 30,
     "zipsTotal": 41,
-    "videosRemaining": 100,
-    "percentComplete": 51,
+    "videosRemaining": 55,
+    "percentComplete": 73,
     "eta": "2026-05-22",
     "status": "Đang chạy (>50%)"
   },
@@ -77,7 +77,7 @@
     {
       "name": "Viết sách KDP",
       "prio": "P1",
-      "progress": 7,
+      "progress": 14,
       "deadline": "30/05",
       "status": "Đang viết",
       "desc": "2/15 chương — ~3,400 từ",
@@ -116,7 +116,7 @@
     {
       "name": "YouTube Upload",
       "prio": "P3",
-      "progress": 51,
+      "progress": 73,
       "deadline": "22/05",
       "status": "Tự động",
       "desc": "275 videos · 21/41 ZIPs",
