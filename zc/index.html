@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZomChess Web</title>
+    <script type="module" crossorigin src="/zc/assets/index-CbLrMLWh.js"></script>
+    <link rel="stylesheet" crossorigin href="/zc/assets/index-DcEUhw0E.css">
+  </head>
+  <body>
+    <main id="app">
+      <section class="board-panel">
+        <div class="topbar">
+          <div>
+            <h1>ZomChess</h1>
+            <p id="phase-summary">Human turn</p>
+          </div>
+          <div class="difficulty-group" aria-label="Difficulty">
+            <button data-difficulty="easy">Easy</button>
+            <button data-difficulty="medium" class="active">Medium</button>
+            <button data-difficulty="hard">Hard</button>
+          </div>
+        </div>
+        <canvas id="game-canvas" aria-label="ZomChess board"></canvas>
+      </section>
+
+      <aside id="hud" class="hud-panel"></aside>
+    </main>
+  </body>
+</html>
