@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#173f3a" />
+    <title>Bamboo Pop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="./assets/index-D1-mCTzJ.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-card" id="gameCard">
+        <canvas id="gameCanvas" aria-label="Bamboo Pop game"></canvas>
+
+        <header class="hud">
+          <button class="round-button" id="pauseButton" aria-label="Tạm dừng">
+            <span></span><span></span>
+          </button>
+          <div class="level-pill">
+            <small>MÀN</small>
+            <strong id="levelLabel">1</strong>
+          </div>
+          <div class="score-pill">
+            <small>ĐIỂM</small>
+            <strong id="scoreLabel">0</strong>
+          </div>
+        </header>
+
+        <aside class="mission-card">
+          <div class="baby-icon"><span>•</span><span>•</span></div>
+          <div>
+            <small>GIẢI CỨU</small>
+            <strong><span id="rescuedLabel">0</span>/<span id="targetLabel">1</span></strong>
+          </div>
+        </aside>
+
+        <div class="shots-meter" id="shotsMeter">
+          <span class="leaf"></span>
+          <strong id="shotsLabel">8</strong>
+        </div>
+
+        <button class="power-button hidden" id="powerButton" aria-label="Dùng power-up">
+          <span class="power-icon" id="powerIcon"></span>
+          <span class="power-name" id="powerName"></span>
+          <small>DÙNG</small>
+        </button>
+
+        <div class="toast" id="toast"></div>
+        <div class="combo" id="combo"></div>
+
+        <div class="overlay visible" id="startOverlay">
+          <div class="title-lockup">
+            <div class="logo-panda">
+              <i class="ear left"></i><i class="ear right"></i>
+              <i class="eye left"></i><i class="eye right"></i>
+              <i class="nose"></i>
+            </div>
+            <h1>BAMBOO<br /><span>POP!</span></h1>
+            <p>Ngắm chuẩn · Ghép bóng · Cứu các bé</p>
+          </div>
+          <button class="primary-button" id="playButton">CHƠI NGAY</button>
+          <button class="text-button hidden" id="newGameButton">Chơi lại từ màn 1</button>
+          <p class="save-note" id="saveNote">Tiến trình được lưu tự động</p>
+        </div>
+
+        <div class="overlay glass hidden" id="pauseOverlay">
+          <div class="modal">
+            <h2>Tạm dừng</h2>
+            <p>Màn <span id="pausedLevel">1</span> · <span id="pausedScore">0</span> điểm</p>
+            <button class="primary-button compact" id="resumeButton">TIẾP TỤC</button>
+            <button class="secondary-button" id="restartButton">CHƠI LẠI MÀN</button>
+            <button class="text-button" id="soundButton">Âm thanh: Bật</button>
+          </div>
+        </div>
+
+        <div class="overlay glass hidden" id="resultOverlay">
+          <div class="modal result">
+            <div class="stars" id="resultStars">★ ★ ★</div>
+            <h2 id="resultTitle">Hoàn thành!</h2>
+            <p id="resultText"></p>
+            <button class="primary-button compact" id="nextButton">MÀN TIẾP THEO</button>
+          </div>
+        </div>
+
+        <div class="overlay glass hidden" id="powerOverlay">
+          <div class="power-modal">
+            <small>PHẦN THƯỞNG MÀN CHƠI</small>
+            <h2>Chọn một trợ lực</h2>
+            <p id="powerSummary">Chỉ dùng trong màn kế tiếp. Không dùng sẽ mất.</p>
+            <div class="power-grid" id="powerChoices"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script defer src="./game.js"></script>
+  </body>
+</html>
